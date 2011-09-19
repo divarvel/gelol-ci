@@ -202,14 +202,161 @@ Les systèmes décentralisés - Ajouts supplémentaires
  - cherry-picking
 
 Builds automatisés
+********************************************************************************
+
+Problématique
 ================================================================================
+
+Logiciels écrits en équipe.
+
+Phase de compilation / assemblage pas toujours évidente (dépendances, …)
+
+Opérations **très** répétitives.
+
+Besoins
+================================================================================
+
+ - Rendre les opérations reproductibles
+ - Automatiser les taches
+ - (éventuellement) brancher des traitements additionnels
+ - Modulariser les traitements
+ - Ajout rapide de développeurs à une équipe
+
+Make
+================================================================================
+
+Framework d'écriture de scripts
+
+Fonctionne sur le principe de **cibles**.
+ 
+ - actions associées à chaque cible
+ - dépendances entre cibles
+
+Mais
+
+ - pas de gestion des dépendances
+ - beaucoup de code à écrire
+ - dépend du système
+
+Dans les faits :
+
+ - make généré automatiquement
+ - dépendances gérées par le système d'exploitation
+
+::
+
+  ./configure
+  make
+  make install
+
+Ant
+================================================================================
+
+Très répandu dans le monde java.
+Scripts écrits sous forme de XML
+ 
+Mais
+
+ - pas de gestion des dépendances
+ - beaucoup de code à écrire
+
+Dans les faits :
+
+ - Une fois que le script Ant fonctionne, on n'y touche plus.
+ - Associé à Ivy pour gérer les dépendances
+
+Maven
+================================================================================
+
+Projet décrit dans un **POM** (Project Object Module)
+
+Sert (entre autres) à *télécharger l'Internet*
+
+Convention over Configuration :
+
+ - *sensible defaults* : dans la plupart des cas, les valeurs par défaut sont
+   les bonnes. => Moins de choses à expliciter
+ - mais possibilité de sortir des clous
+
+Très répandu dans le monde java.
+
+Maven
+================================================================================
+
+Contenu du POM :
+
+ - dépendances
+ - relations de parenté entre modules
+ - configuration des modules maven
+  
+   - Version de Java utilisée pour la compilation (Java 1.6 si possible)
+   - Module de création d'exécutables (jar)
+   - Génération de documentation
+
+Maven - Dépendances
+================================================================================
+
+::
+
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>3.8.1</version>
+        <scope>test</scope>
+    </dependency>
+
+ - Dépendance à junit
+ - junit.junit - version 3.8.1
+ - nécessaire seulement pendant la phase de test
+
+
+Maven - Repositories
+================================================================================
+
+Bibilothèques rangées dans différents dépôts.
+
+ - Dépôt Central
+ - ``repo2.maven.org``
+
+Dépôts tiers
+
+ - Dépôt scala-tools
+ - Dépôts "maison"
+ - Dépôts "cache"
+
+Maven - Goals
+================================================================================
+
+Différentes phases au sein du cycle de vie d'un projet. Par exemple :
+
+ - compilation
+ - Tests
+ - empaquetage
+ - installation
+ - déploiement
+
+Dépendances entre les différents *goals*
+
+Maven - Projets modulaires
+================================================================================
+
+Un projet est rarement monolithique. Il est en général composé de différentes
+parties peu couplées, mais interdépendantes.
+
+Par exemple, pour un navigateur web :
+
+ - Moteur de rendu HTML
+ - Moteur Javascript
+ - Interface graphique
+
+Il est alors judicieux de séparer ce projet en modules distincts
 
 Tests automatisés
-================================================================================
+********************************************************************************
 
 Métriques
-================================================================================
+********************************************************************************
 
 Continuous delivery / deployment
-================================================================================
+********************************************************************************
 
