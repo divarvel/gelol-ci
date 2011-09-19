@@ -132,6 +132,8 @@ Un serveur commun à tous les développeurs.
 
 Gestion du versionnement sur le serveur.
 
+.. image:: workflow-centralized.png
+
 Les systèmes centralisés - limites
 ================================================================================
 
@@ -164,12 +166,15 @@ Un dépôt par développeur.
 
 Grande liberté dans le fonctionnement (on peut même faire du centralisé).
 
+.. image:: workflow-blessed-repo.png
 
 Les systèmes décentralisés - Ajouts
 ================================================================================
 
 Une étape supplémentaire : le push. Le commit (ainsi que quasiment tout le
 reste) est désormais local. 
+
+.. image:: git-workflow.png
 
 Plus de latence réseau sur :
 
@@ -354,9 +359,17 @@ Il est alors judicieux de séparer ce projet en modules distincts
 Tests automatisés
 ********************************************************************************
 
+S'assurer de la qualité du code
+================================================================================
+
 Métriques
 ********************************************************************************
+
+S'assurer de la qualité du code
+================================================================================
 
 Continuous delivery / deployment
 ********************************************************************************
 
+Automatiser ce qui est automatisable
+================================================================================
