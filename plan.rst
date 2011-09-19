@@ -3,7 +3,7 @@ Intégration continue
 ================================================================================
 
 Contrôle de version
-================================================================================
+********************************************************************************
 
 Problématique
 ================================================================================
@@ -53,16 +53,17 @@ Une modification, donnée seule, peut être difficile à comprendre :
 - Diff de grande taille
 - Modifications subtiles...
 
-Solution -> Joindre un mesage explicatif à chaque modification
+Solution -> Joindre un message explicatif à chaque modification
 
 3 - Maintenir un historique des modifications
 ================================================================================
 
-Soit une équipe de développement en train de bosser sur une appli web avec authentification...
+Soit une équipe de développement en train de bosser sur une appli web avec
+authentification...
 
 Identification par mot de passe... "encodés" en base64.
 
-3 - 
+3 - Maintenir un historique des modifications
 ================================================================================
 
 Qui a introduit ce code ?
@@ -80,13 +81,16 @@ Depuis quand est-il en place ?
 4 - Permettre les divergences et convergences des codes
 ================================================================================
 
-Soit une équipe, travaillant sur une bibliothèque dont un algorithme *pourrait* être bloquant...
+Soit une équipe, travaillant sur une bibliothèque dont un algorithme
+*pourrait* être bloquant...
 
 Travail long et fastidieux.
 
-Travail sur la base de codes commune -> Blocage pour tout l'équipe (il va y avoir de la casse temporaire)
+Travail sur la base de codes commune -> Blocage pour tout l'équipe (il va y
+avoir de la casse temporaire)
 
-Travail dans son coin, modification en une seule fois dans la base de codes -> Modification incompréhensible...
+Travail dans son coin, modification en une seule fois dans la base de codes ->
+Modification incompréhensible...
 
 4 - S : Permettre le suivi des codes qui divergent, simplifier les convergences
 ================================================================================
