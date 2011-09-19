@@ -359,6 +359,90 @@ Il est alors judicieux de séparer ce projet en modules distincts
 Tests automatisés
 ********************************************************************************
 
+Problématique
+================================================================================
+
+L'informatique est une disicipline déterministe.
+
+Les logiciels sont rarement écrits en aveugle
+
+- Des spécifications décrivent un comportement attendu
+- Les algorithmes sont pensés avant d'être couchés sur le papier
+
+-> On peut décrire très souvent les entrées d'un traitement, et les résultats qu'il
+doit fournir en utilisant ces entrées
+
+Deux mondes s'opposent
+================================================================================
+
+Dans un monde parfait : les développeurs sont beaux, ils codent sans introduire 
+de bugs dans les logiciels...
+
+Dans le monde réel : les développeurs sont beaux, mais leurs codent ne marchent 
+pas toujours
+
+Deux mondes s'opposent - bis
+================================================================================
+
+1. Pour corriger les codes, on travail en aval, et on fait uniquement du debugging.
+
+2. Pour détecter les erreurs dans le code le plus tôt possible, on travail en 
+   amont, par exemple en écrivant des **tests unitaires**.
+
+Les tests unitaires - définition
+================================================================================
+
+"En programmation informatique, le test unitaire est un procédé permettant de 
+s'assurer du fonctionnement correct d'une partie déterminée d'un logiciel ou 
+d'une portion d'un programme (appelée « unité » ou « module »)."
+
+Merci *wikipedia* : .. http://fr.wikipedia.org/wiki/Test_unitaire
+
+Dans les faits, qui est l'unité ?
+================================================================================
+
+Toute méthode / fonction dont les entrées et sorties attendues peuvent être décrites
+précisément.
+
+Objectif : Tester les codes aussi largement que possible, dans leurs fonctionnement
+atomique
+
+Que teste-t-on ?
+================================================================================
+
+Les comportements attendus, décrits par les spécifications, par la doc...
+
+- Les sorties attendues
+- Les erreurs attendues.
+
+Ce que les tests apportent
+================================================================================
+
+- Vérification de la validité du contrat passé entre les codes et leur description
+- Protection contre l'introduction des régressions dans le code
+
+Ce n'est pas tout...
+
+- Écrire des tests lors du développement d'une API force à la prendre en main
+- Lire les tests associés à un code permettent parfois de mieux comprendre leur
+  fonctionnement.
+
+Ce que les tests n'apportent pas, et n'apporteront jamais
+================================================================================
+
+Une couverture exhaustive de toutes les états qui peuvent être rencontrés dans 
+un logiciel.
+
+- Trop grande complexité
+- Comportements parfois inattendus. Certains bugs ne sont révélés que dans des 
+  configurations surprenantes... et peuvent être le fruit de l'interaction entre
+  plusieurs briques logicielles pourtant indépendantes en apparence.
+
+Mais surtout... **La présence de tests unitaires ne peut garantir l'absence 
+de bugs dans un logiciel**, et ce quelle que soit la couverture.
+
+Quid de la présence d'un bug dans les tests.
+
 S'assurer de la qualité du code
 ================================================================================
 
