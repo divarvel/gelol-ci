@@ -121,19 +121,85 @@ CVS, SVN, Mercurial, Git, Bazaar...
 Deux grandes "familles" :
 
 - Les systèmes centralisés
-- Les sysètmes décentralisés
+- Les systèmes décentralisés
 
 Les systèmes centralisés
-================================
+================================================================================
 
 SVN, CVS...
 
 Un serveur commun à tous les développeurs.
 
-Gestion du versoinnement sur le serveur.
+Gestion du versionnement sur le serveur.
+
+Les systèmes centralisés - limites
+================================================================================
+
+ - Rigidité
+   
+   - Impossible de commiter "dans son coin"
+   - Impossible de créer des branches rapidement
+   - Nécessité d'être connecté
+   - Conventions architecturales
+
+Les systèmes centralisés - limites
+================================================================================
+
+ - Lenteur
+   
+   - Latence réseau
+
+ - Fusion des branches difficile
+
+ - *Politique*
+
+Les systèmes décentralisés
+================================================================================
+
+Git, Mercurial, Bazaar, Darcs (<3)
+
+Pas forcément de dépôt central.
+
+Un dépôt par développeur.
+
+Grande liberté dans le fonctionnement (on peut même faire du centralisé).
 
 
+Les systèmes décentralisés - Ajouts
+================================================================================
 
+Une étape supplémentaire : le push. Le commit (ainsi que quasiment tout le
+reste) est désormais local. 
+
+Plus de latence réseau sur :
+
+ - le commit
+ - consultation des logs
+ - manipulation des branches
+ - …
+
+=> moins de contraintes sur les commits (un commit peut représenter un état
+intermédiaire)
+
+ - Commits atomiques
+ - Expérimentations
+
+Les systèmes décentralisés - Ajouts
+================================================================================
+
+Séparation claire des projets - un dépôt par projet
+
+Branches locales
+
+ - liberté sur la création des branches
+ - l'opération est plus simple
+
+Les systèmes décentralisés - Ajouts supplémentaires
+================================================================================
+
+ - bisect
+ - rebase
+ - cherry-picking
 
 Builds automatisés
 ================================================================================
