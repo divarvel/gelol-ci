@@ -147,13 +147,9 @@ Les systèmes centralisés - limites
 Les systèmes centralisés - limites
 ================================================================================
 
- - Lenteur
-
-   - Latence réseau
-
- - Fusion des branches difficile
-
- - *Politique*
+- Lenteur - latence réseau
+- Fusion des branches difficile
+- *Politique*
 
 Les systèmes décentralisés
 ================================================================================
@@ -168,7 +164,7 @@ Grande liberté dans le fonctionnement (on peut même faire du centralisé).
 
 .. image:: workflow-blessed-repo.png
 
-Les systèmes décentralisés - Ajouts
+Les systèmes décentralisés - Ajouts (1)
 ================================================================================
 
 Une étape supplémentaire : le push. Le commit (ainsi que quasiment tout le
@@ -176,20 +172,26 @@ reste) est désormais local.
 
 .. image:: git-workflow.png
 
+Les systèmes décentralisés - Ajouts (2)
+================================================================================
+
 Plus de latence réseau sur :
 
- - le commit
- - consultation des logs
- - manipulation des branches
- - …
+- le commit
+- consultation des logs
+- manipulation des branches
+- …
 
-=> moins de contraintes sur les commits (un commit peut représenter un état
+Les systèmes décentralisés - Ajouts (3)
+================================================================================
+
+Moins de contraintes sur les commits (un commit peut représenter un état
 intermédiaire)
 
- - Commits atomiques
- - Expérimentations
+- Commits atomiques
+- Expérimentations
 
-Les systèmes décentralisés - Ajouts
+Les systèmes décentralisés - Ajouts (4)
 ================================================================================
 
 Séparation claire des projets - un dépôt par projet
@@ -205,6 +207,49 @@ Les systèmes décentralisés - Ajouts supplémentaires
  - bisect
  - rebase
  - cherry-picking
+ - …
+
+Quelques bonnes pratiques de versionnement
+================================================================================
+
+Les fichiers à ne **jamais** commiter/pusher : 
+
+- Les fichiers compilés (Les *.class* en Java, les *.o* en C... les *.tex* pour 
+  ce rapport...)
+- Les fichiers de configuration inutiles pour le projet (Au hasard les fichiers
+  de configuration d'Eclipse)
+
+-> Utilisez les marqueurs à disposition (svn:ignore, .gitignore...) pour éviter
+de commiter n'importe quoi.
+
+Quelques bonnes pratiques de versionnement
+================================================================================
+
+- Commiter souvent pour rendre les commits aussi lisibles que possibles.
+- Ne pas oublier que certains outils doivent être utilisés avec parcimonie (git
+  rebase, par exemple)
+- …
+
+Quelques ressources
+================================================================================
+
+Pour SVN :
+
+http://svnbook.red-bean.com/
+http://stackoverflow.com/questions/871/why-is-git-better-than-subversion
+
+Pour git :
+
+http://whygitisbetterthanx.com/
+http://book.git-scm.com/
+
+Pour Mercurial :
+
+http://hgbook.red-bean.com/
+
+Ce rapport est versionné sous git :
+
+*git clone https://github.com/divarvel/gelol-ci.git*
 
 Builds automatisés
 ********************************************************************************
@@ -262,8 +307,8 @@ Scripts écrits sous forme de XML
 
 Mais
 
- - pas de gestion des dépendances
- - beaucoup de code à écrire
+ - Pas de gestion des dépendances
+ - Beaucoup de code à écrire
 
 Dans les faits :
 
@@ -361,7 +406,7 @@ Il est alors judicieux de séparer ce projet en modules distincts
 Maven - Quelques cas d'utilisation... (1)
 ================================================================================
 
-..
+::
 
   mvn compile
 
@@ -383,7 +428,7 @@ Les fichiers **.class** sont générés.
 Maven - Quelques cas d'utilisation... (2)
 ================================================================================
 
-..
+::
 
   mvn test
 
@@ -406,7 +451,7 @@ Les tests sont exécutés sur les codes.
 Maven - Quelques cas d'utilisation... (3)
 ================================================================================
 
-..
+::
 
   mvn clean install
 
@@ -454,9 +499,10 @@ pas toujours
 Deux mondes s'opposent - bis
 ================================================================================
 
-1. Pour corriger les codes, on travail en aval, et on fait uniquement du debugging.
+1. Pour corriger les codes, on travaille en aval, et on fait uniquement du 
+   debugging.
 
-2. Pour détecter les erreurs dans le code le plus tôt possible, on travail en
+2. Pour détecter les erreurs dans le code le plus tôt possible, on travaille en
    amont, par exemple en écrivant des **tests unitaires**.
 
 Les tests unitaires - définition
