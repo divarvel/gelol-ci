@@ -17,7 +17,7 @@ Les codes sont :
 
 - Pensés de façon modulaire (on espère)
 
-  - Interventions indépendantes sur les codes.    
+  - Interventions indépendantes sur les codes.
   - Divergence des bases de codes
 
 Plusieurs problèmes peuvent être dégagés.
@@ -25,7 +25,7 @@ Plusieurs problèmes peuvent être dégagés.
 1 - Échanger les codes
 ================================================================================
 
-Première approche : 
+Première approche :
 
 - Envoi de fichiers sources par mail.
 - Faire un mv / un copier coller.
@@ -138,7 +138,7 @@ Les systèmes centralisés - limites
 ================================================================================
 
  - Rigidité
-   
+
    - Impossible de commiter "dans son coin"
    - Impossible de créer des branches rapidement
    - Nécessité d'être connecté
@@ -148,7 +148,7 @@ Les systèmes centralisés - limites
 ================================================================================
 
  - Lenteur
-   
+
    - Latence réseau
 
  - Fusion des branches difficile
@@ -172,7 +172,7 @@ Les systèmes décentralisés - Ajouts
 ================================================================================
 
 Une étape supplémentaire : le push. Le commit (ainsi que quasiment tout le
-reste) est désormais local. 
+reste) est désormais local.
 
 .. image:: git-workflow.png
 
@@ -233,7 +233,7 @@ Make
 Framework d'écriture de scripts
 
 Fonctionne sur le principe de **cibles**.
- 
+
  - actions associées à chaque cible
  - dépendances entre cibles
 
@@ -259,7 +259,7 @@ Ant
 
 Très répandu dans le monde java.
 Scripts écrits sous forme de XML
- 
+
 Mais
 
  - pas de gestion des dépendances
@@ -293,7 +293,7 @@ Contenu du POM :
  - dépendances
  - relations de parenté entre modules
  - configuration des modules maven
-  
+
    - Version de Java utilisée pour la compilation (Java 1.6 si possible)
    - Module de création d'exécutables (jar)
    - Génération de documentation
@@ -327,7 +327,7 @@ Dépôts tiers
 
  - Dépôt scala-tools
  - Dépôts "maison"
- - Dépôts "cache"
+ - Dépôts "cache" pour soulager la bande passante
 
 Maven - Goals
 ================================================================================
@@ -335,12 +335,14 @@ Maven - Goals
 Différentes phases au sein du cycle de vie d'un projet. Par exemple :
 
  - compilation
- - Tests
+ - tests
  - empaquetage
  - installation
  - déploiement
+ - nettoyage
 
-Dépendances entre les différents *goals*
+Dépendances entre les différents *goals*. Intérêt : on ne peut pas faire un
+déploiement innocent d'une bibliothèque dont des tests sont cassés...
 
 Maven - Projets modulaires
 ================================================================================
@@ -356,6 +358,74 @@ Par exemple, pour un navigateur web :
 
 Il est alors judicieux de séparer ce projet en modules distincts
 
+Maven - Quelques cas d'utilisation... (1)
+================================================================================
+
+..
+
+  mvn compile
+
+Cette commande lance la phase de **compilation** : toutes les sources sont compilées,
+après résolution des dépendances.
+
+Concrètement, que se passe-t-il ?
+
+Les dépendances sont résolues.
+
+- Maven vérifie que toutes les dépendances (utilisées...) sont présentes localement.
+- Si certaines sont manquantes -> Tentative de rappatriement depuis un des dépôts déclarés.
+- En cas d'échec -> erreur de compilation... ;-)
+
+Le *classpath* du compilateur Java est alimenté comme il se doit.
+
+Les fichiers **.class** sont générés.
+
+Maven - Quelques cas d'utilisation... (2)
+================================================================================
+
+..
+
+  mvn test
+
+Cette commande exécute les tests déclarés dans le projet.
+
+Concrètement, que se passe-t-il ?
+
+La phase ``mvn compile`` est lancée (dépendance préalable à l'exécution des tests.
+On ne pourrait pas tester des codes qui ne compilent pas...)
+
+Les dépendances sur les tests sont résolues
+
+Les tests sont compilés.
+
+Les tests sont exécutés sur les codes.
+
+**On a réalisé, en une seule commande, quatre opérations non atomiques !**
+
+
+Maven - Quelques cas d'utilisation... (3)
+================================================================================
+
+..
+
+  mvn clean install
+
+**Attention !** On a cette fois deux *goals* à exécuter !
+
+D'abord le goal **clean** : tous les fichiers générés qui ne sont pas des sources sont
+supprimés. Ici, le paradigme *Convention over Configuration* est essentiel !
+
+Puis le goal **install** :
+
+Le goal **compile** est exécuté.
+
+Le goal **test** est exécuté.
+
+Le goal **package** est exécuté -> création d'un jar.
+
+Le goal **install** est exécuté -> installation de l'archive dans un dépôt local. La bibliothèque
+ainsi produite devient utilisable localement par tous les autres projet Maven !
+
 Tests automatisés
 ********************************************************************************
 
@@ -364,7 +434,7 @@ Problématique
 
 L'informatique est une disicipline déterministe.
 
-Les logiciels sont rarement écrits en aveugle
+Les logiciels sont rarement écrits en aveugle :
 
 - Des spécifications décrivent un comportement attendu
 - Les algorithmes sont pensés avant d'être couchés sur le papier
@@ -375,10 +445,10 @@ doit fournir en utilisant ces entrées
 Deux mondes s'opposent
 ================================================================================
 
-Dans un monde parfait : les développeurs sont beaux, ils codent sans introduire 
+Dans un monde parfait : les développeurs sont beaux, ils codent sans introduire
 de bugs dans les logiciels...
 
-Dans le monde réel : les développeurs sont beaux, mais leurs codent ne marchent 
+Dans le monde réel : les développeurs sont beaux, mais leurs codent ne marchent
 pas toujours
 
 Deux mondes s'opposent - bis
@@ -386,14 +456,14 @@ Deux mondes s'opposent - bis
 
 1. Pour corriger les codes, on travail en aval, et on fait uniquement du debugging.
 
-2. Pour détecter les erreurs dans le code le plus tôt possible, on travail en 
+2. Pour détecter les erreurs dans le code le plus tôt possible, on travail en
    amont, par exemple en écrivant des **tests unitaires**.
 
 Les tests unitaires - définition
 ================================================================================
 
-"En programmation informatique, le test unitaire est un procédé permettant de 
-s'assurer du fonctionnement correct d'une partie déterminée d'un logiciel ou 
+"En programmation informatique, le test unitaire est un procédé permettant de
+s'assurer du fonctionnement correct d'une partie déterminée d'un logiciel ou
 d'une portion d'un programme (appelée « unité » ou « module »)."
 
 Merci *wikipedia* : .. http://fr.wikipedia.org/wiki/Test_unitaire
@@ -430,15 +500,15 @@ Ce n'est pas tout...
 Ce que les tests n'apportent pas, et n'apporteront jamais
 ================================================================================
 
-Une couverture exhaustive de toutes les états qui peuvent être rencontrés dans 
+Une couverture exhaustive de toutes les états qui peuvent être rencontrés dans
 un logiciel.
 
 - Trop grande complexité
-- Comportements parfois inattendus. Certains bugs ne sont révélés que dans des 
+- Comportements parfois inattendus. Certains bugs ne sont révélés que dans des
   configurations surprenantes... et peuvent être le fruit de l'interaction entre
   plusieurs briques logicielles pourtant indépendantes en apparence.
 
-Mais surtout... **La présence de tests unitaires ne peut garantir l'absence 
+Mais surtout... **La présence de tests unitaires ne peut garantir l'absence
 de bugs dans un logiciel**, et ce quelle que soit la couverture.
 
 Quid de la présence d'un bug dans les tests.
