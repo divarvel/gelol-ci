@@ -137,12 +137,12 @@ Gestion du versionnement sur le serveur.
 Les systèmes centralisés - limites
 ================================================================================
 
- - Rigidité
+- Rigidité
 
-   - Impossible de commiter "dans son coin"
-   - Impossible de créer des branches rapidement
-   - Nécessité d'être connecté
-   - Conventions architecturales
+  - Impossible de commiter "dans son coin"
+  - Impossible de créer des branches rapidement
+  - Nécessité d'être connecté
+  - Conventions architecturales
 
 Les systèmes centralisés - limites
 ================================================================================
@@ -198,16 +198,16 @@ Séparation claire des projets - un dépôt par projet
 
 Branches locales
 
- - liberté sur la création des branches
- - l'opération est plus simple
+- liberté sur la création des branches
+- l'opération est plus simple
 
 Les systèmes décentralisés - Ajouts supplémentaires
 ================================================================================
 
- - bisect
- - rebase
- - cherry-picking
- - …
+- bisect
+- rebase
+- cherry-picking
+- …
 
 Quelques bonnes pratiques de versionnement
 ================================================================================
@@ -266,11 +266,11 @@ Opérations **très** répétitives.
 Besoins
 ================================================================================
 
- - Rendre les opérations reproductibles
- - Automatiser les taches
- - (éventuellement) brancher des traitements additionnels
- - Modulariser les traitements
- - Ajout rapide de développeurs à une équipe
+- Rendre les opérations reproductibles
+- Automatiser les taches
+- (éventuellement) brancher des traitements additionnels
+- Modulariser les traitements
+- Ajout rapide de développeurs à une équipe
 
 Make
 ================================================================================
@@ -279,19 +279,19 @@ Framework d'écriture de scripts
 
 Fonctionne sur le principe de **cibles**.
 
- - actions associées à chaque cible
- - dépendances entre cibles
+- actions associées à chaque cible
+- dépendances entre cibles
 
 Mais
 
- - pas de gestion des dépendances
- - beaucoup de code à écrire
- - dépend du système
+- pas de gestion des dépendances
+- beaucoup de code à écrire
+- dépend du système
 
 Dans les faits :
 
- - make généré automatiquement
- - dépendances gérées par le système d'exploitation
+- make généré automatiquement
+- dépendances gérées par le système d'exploitation
 
 ::
 
@@ -307,13 +307,13 @@ Scripts écrits sous forme de XML
 
 Mais
 
- - Pas de gestion des dépendances
- - Beaucoup de code à écrire
+- Pas de gestion des dépendances
+- Beaucoup de code à écrire
 
 Dans les faits :
 
- - Une fois que le script Ant fonctionne, on n'y touche plus.
- - Associé à Ivy pour gérer les dépendances
+- Une fois que le script Ant fonctionne, on n'y touche plus.
+- Associé à Ivy pour gérer les dépendances
 
 Maven
 ================================================================================
@@ -324,9 +324,9 @@ Sert (entre autres) à *télécharger l'Internet*
 
 Convention over Configuration :
 
- - *sensible defaults* : dans la plupart des cas, les valeurs par défaut sont
-   les bonnes. => Moins de choses à expliciter
- - mais possibilité de sortir des clous
+- *sensible defaults* : dans la plupart des cas, les valeurs par défaut sont
+  les bonnes - Moins de choses à expliciter
+- mais possibilité de sortir des clous
 
 Très répandu dans le monde java.
 
@@ -335,13 +335,13 @@ Maven
 
 Contenu du POM :
 
- - dépendances
- - relations de parenté entre modules
- - configuration des modules maven
+- dépendances
+- relations de parenté entre modules
+- configuration des modules maven
 
-   - Version de Java utilisée pour la compilation (Java 1.6 si possible)
-   - Module de création d'exécutables (jar)
-   - Génération de documentation
+  - Version de Java utilisée pour la compilation (Java 1.6 si possible)
+  - Module de création d'exécutables (jar)
+  - Génération de documentation
 
 Maven - Dépendances
 ================================================================================
@@ -355,9 +355,9 @@ Maven - Dépendances
         <scope>test</scope>
     </dependency>
 
- - Dépendance à junit
- - junit.junit - version 3.8.1
- - nécessaire seulement pendant la phase de test
+- Dépendance à junit
+- junit.junit - version 3.8.1
+- nécessaire seulement pendant la phase de test
 
 
 Maven - Repositories
@@ -365,26 +365,26 @@ Maven - Repositories
 
 Bibilothèques rangées dans différents dépôts.
 
- - Dépôt Central
- - ``repo2.maven.org``
+- Dépôt Central
+- ``repo2.maven.org``
 
 Dépôts tiers
 
- - Dépôt scala-tools
- - Dépôts "maison"
- - Dépôts "cache" pour soulager la bande passante
+- Dépôt scala-tools
+- Dépôts "maison"
+- Dépôts "cache" pour soulager la bande passante
 
 Maven - Goals
 ================================================================================
 
 Différentes phases au sein du cycle de vie d'un projet. Par exemple :
 
- - compilation
- - tests
- - empaquetage
- - installation
- - déploiement
- - nettoyage
+- compilation
+- tests
+- empaquetage
+- installation
+- déploiement
+- nettoyage
 
 Dépendances entre les différents *goals*. Intérêt : on ne peut pas faire un
 déploiement innocent d'une bibliothèque dont des tests sont cassés...
@@ -397,9 +397,9 @@ parties peu couplées, mais interdépendantes.
 
 Par exemple, pour un navigateur web :
 
- - Moteur de rendu HTML
- - Moteur Javascript
- - Interface graphique
+- Moteur de rendu HTML
+- Moteur Javascript
+- Interface graphique
 
 Il est alors judicieux de séparer ce projet en modules distincts
 
@@ -564,23 +564,23 @@ Quid de la présence d'un bug dans les tests.
 
 TDD - Test Driven Development : écrire les tests avant le code.
 
- - permet de formaliser les spécifications
- - s'assurer de la couverture du code 
+- permet de formaliser les spécifications
+- s'assurer de la couverture du code 
 
 BDD - Behaviour Driven Development : écrire les spécifications sous forme de
 tests.
 
- - tests écrits de manière intelligible
- - décrivent simplement le comportement de chaque élément
+- tests écrits de manière intelligible
+- décrivent simplement le comportement de chaque élément
 
 Écrire du code testable
 ================================================================================
 
- - Couplage faible
- - PAS DE STATIQUE
- - IoC / DI
- - Minimiser les états cachés
- - Transparence référentielle
+- Couplage faible
+- PAS DE STATIQUE
+- IoC / DI
+- Minimiser les états cachés
+- Transparence référentielle
 
 Métriques
 ********************************************************************************
