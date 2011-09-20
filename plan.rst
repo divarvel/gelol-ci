@@ -443,8 +443,28 @@ de bugs dans un logiciel**, et ce quelle que soit la couverture.
 
 Quid de la présence d'un bug dans les tests.
 
-S'assurer de la qualité du code
+Écrire les tests en premier
 ================================================================================
+
+TDD - Test Driven Development : écrire les tests avant le code.
+
+ - permet de formaliser les spécifications
+ - s'assurer de la couverture du code 
+
+BDD - Behaviour Driven Development : écrire les spécifications sous forme de
+tests.
+
+ - tests écrits de manière intelligible
+ - décrivent simplement le comportement de chaque élément
+
+Écrire du code testable
+================================================================================
+
+ - Couplage faible
+ - PAS DE STATIQUE
+ - IoC / DI
+ - Minimiser les états cachés
+ - Transparence référentielle
 
 Métriques
 ********************************************************************************
