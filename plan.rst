@@ -503,6 +503,36 @@ SBT :
 - présence d'une console intégrée permettant d'interagir avec les JARs.
 - Compatible Maven.
 
+Quelques ressources (1)
+================================================================================
+
+Pour make :
+
+- http://www.gnu.org/software/make/
+
+Pour Ant :
+
+- http://ant.apache.org/
+
+Pour Maven :
+
+- Maven, the definitive guide, https://github.com/sonatype/maven-guide-en
+- http://maven.apache.org/
+
+
+Quelques ressources (1)
+================================================================================
+
+Pour Gradle :
+
+- http://www.gradle.org/
+- G. Mazelier, *"Build automatisé : à la découverte de Gradle"*, **GNU/Linux 
+  Magazine France n°141**, pp 22-34
+
+Pour SBT :
+
+- https://github.com/harrah/xsbt/wiki
+
 Tests automatisés
 ********************************************************************************
 
