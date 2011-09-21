@@ -389,6 +389,21 @@ Différentes phases au sein du cycle de vie d'un projet. Par exemple :
 Dépendances entre les différents *goals*. Intérêt : on ne peut pas faire un
 déploiement innocent d'une bibliothèque dont des tests sont cassés...
 
+Maven - Archetypes
+================================================================================
+
+Les conventions ont un rôle très fort -> on construit toujours les mêmes 
+projets
+
+- Génération à partir de squelettes
+- Utilisation des "archetypes".
+
+::
+
+  mvn archetype:generate
+
+donne une liste d'archetypes disponibles par défaut.
+
 Maven - Projets modulaires
 ================================================================================
 
@@ -470,6 +485,23 @@ Le goal **package** est exécuté -> création d'un jar.
 
 Le goal **install** est exécuté -> installation de l'archive dans un dépôt local. La bibliothèque
 ainsi produite devient utilisable localement par tous les autres projet Maven !
+
+Et encore d'autres...
+================================================================================
+
+D'autres outils de build existent, ne serait-ce que dans le monde de la JVM.
+
+Gradle : 
+
+- Grande souplesse dans la gestion des processus de build.
+- Utilisation de Groovy pour décrire les phases de build.
+- Compatible Maven.
+
+SBT :
+
+- Grande souplesse dans la gestion des dépendances
+- présence d'une console intégrée permettant d'interagir avec les JARs.
+- Compatible Maven.
 
 Tests automatisés
 ********************************************************************************
