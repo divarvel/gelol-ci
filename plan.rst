@@ -202,12 +202,22 @@ Branches locales
 - liberté sur la création des branches
 - l'opération est plus simple
 
+Les systèmes décentralisés - Ajouts (5)
+================================================================================
+
+Plus de contraintes sur l'état de la branche de travail
+
+- Pas possible de faire un "push" si la branche de travail courante n'est pas 
+  propre
+- Obligation de présenter un état cohérent aux autres développeurs
+
 Les systèmes décentralisés - Ajouts supplémentaires
 ================================================================================
 
 - bisect
 - rebase
 - cherry-picking
+- stash  
 - …
 
 Quelques bonnes pratiques de versionnement
