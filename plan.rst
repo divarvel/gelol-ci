@@ -171,6 +171,7 @@ Une étape supplémentaire : le push. Le commit (ainsi que quasiment tout le
 reste) est désormais local.
 
 .. image:: git-workflow.png
+   :width: 50%
 
 Les systèmes décentralisés - Ajouts (2)
 ================================================================================
