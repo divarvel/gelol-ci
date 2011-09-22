@@ -501,7 +501,8 @@ Gradle :
 SBT :
 
 - Grande souplesse dans la gestion des dépendances
-- présence d'une console intégrée permettant d'interagir avec les JARs.
+- Écrit en scala
+- Fichiers de configuration très concis
 - Compatible Maven.
 
 Quelques ressources (1)
