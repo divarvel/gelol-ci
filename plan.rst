@@ -216,7 +216,7 @@ Quelques bonnes pratiques de versionnement
 Les fichiers à ne **jamais** commiter/pusher : 
 
 - Les fichiers compilés (Les *.class* en Java, les *.o* en C... les *.tex* pour 
-  ce rapport...)
+  ce document...)
 - Les fichiers de configuration inutiles pour le projet (Au hasard les fichiers
   de configuration d'Eclipse)
 
@@ -248,7 +248,7 @@ Pour Mercurial :
 
 http://hgbook.red-bean.com/
 
-Ce rapport est versionné sous git :
+Ce document est versionné sous git :
 
 *git clone https://github.com/divarvel/gelol-ci.git*
 
