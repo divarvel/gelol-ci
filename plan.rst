@@ -225,8 +225,8 @@ Quelques bonnes pratiques de versionnement
 
 Les fichiers à ne **jamais** commiter/pusher : 
 
-- Les fichiers compilés (Les *.class* en Java, les *.o* en C... les *.tex* pour 
-  ce document...)
+- Les fichiers compilés (Les *.class* en Java, les *.o* en C... les *.tex* et 
+  le fichier généré par dot pour ce document...)
 - Les fichiers de configuration inutiles pour le projet (Au hasard les fichiers
   de configuration d'Eclipse)
 
