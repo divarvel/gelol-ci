@@ -1,0 +1,11 @@
+digraph inheritance {
+    rankdir=LR;
+    size="8"
+    node [shape = circle];
+    Interface [color = darkgoldenrod];
+    Parser [color = gold];
+    Utilitaire [color = gold];
+    Interface -> Parser [ label = "Directe" color = blue ];
+    Parser -> Utilitaire [ label = "Transitive" color = blue ];
+}
+

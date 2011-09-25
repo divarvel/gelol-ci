@@ -10,6 +10,8 @@ handout: slides.tex
 	\\setbeameroption{handout}'
 
 slides.tex: plan.rst
+	@echo "Génération des images avec dot"
+	@dot -Tpng -o heritage.png inheritance.gv
 	@echo "Génération du fichier tex"
 	@rst2beamer --title="GELOL" \
 		--language="fr" \
@@ -49,6 +51,7 @@ clean:
 	@rm slides.snm
 	@rm slides.toc
 	@rm slides.vrb
+	@rm heritage.png
 
 mrproper: clean
 	@echo "Suppression du fichier PDF"

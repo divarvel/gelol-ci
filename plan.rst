@@ -211,7 +211,7 @@ Plus de contraintes sur l'état de la branche de travail
   propre
 - Obligation de présenter un état cohérent aux autres développeurs
 
-Les systèmes décentralisés - Ajouts supplémentaires
+Et aussi dans git...- Ajouts supplémentaires
 ================================================================================
 
 - bisect
@@ -353,6 +353,14 @@ Contenu du POM :
   - Version de Java utilisée pour la compilation (Java 1.6 si possible)
   - Module de création d'exécutables (jar)
   - Génération de documentation
+
+
+Maven - les dépendances transitives
+================================================================================
+
+
+.. image:: heritage.png
+        :width: 100%
 
 Maven - Dépendances
 ================================================================================
