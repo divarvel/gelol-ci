@@ -754,3 +754,30 @@ Continuous delivery / deployment
 
 Automatiser ce qui est automatisable
 ================================================================================
+
+Maintenant que l'on est sûr de la qualité du code produit, pourquoi ne pas
+l'envoyer tout de suite en production ?
+
+Les bénéfices sont multiples :
+
+- *Faster TTM: time to market*
+- *Feedback* utilisateur quasi immédiat
+- Pas de gel de la base de code
+- Logiciel continuellement utilisable
+- Ajouts de code plus petits
+
+  - Plus facile à *débug*
+
+Cadres propices
+================================================================================
+
+SaaS - Software as a Service
+
+- Environnement d'exécution contrôlé
+- Changement accepté par les utilisateurs
+- **Application Web**
+
+Google Chrome
+
+- Mise à jour *à chaud*
+- Notion de numéro de version obsolète
