@@ -727,6 +727,28 @@ Métriques
 S'assurer de la qualité du code
 ================================================================================
 
+- Le code est sans *bugs*, certes.
+
+  - Mais est-il maintenable ?
+  - Est-il évolutif ?
+  - Fait-il saigner les yeux ?
+
+- Nécessité de mesures plus fines que « Ça marche / Ça marche pas »
+
+Quelques métriques
+================================================================================
+
+- Style de codage
+
+  - Indentation
+  - Espacement
+  - Longueur des lignes
+
+- Détection de copier / coller
+- Complexité du code (complexité cyclomatique)
+- Couplage entre les composants
+- Abstraction / Viscosité
+
 Continuous delivery / deployment
 ********************************************************************************
 
