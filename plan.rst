@@ -639,6 +639,9 @@ un logiciel.
 Mais surtout... **La présence de tests unitaires ne peut garantir l'absence
 de bugs dans un logiciel**, et ce quelle que soit la couverture.
 
+- Testing shows the presence, not the absence of bugs 
+- E. Djikstra
+
 Quid de la présence d'un bug dans les tests.
 
 Écrire les tests en premier
@@ -655,14 +658,68 @@ tests.
 - tests écrits de manière intelligible
 - décrivent simplement le comportement de chaque élément
 
+- voir specs.scala
+
 Écrire du code testable
 ================================================================================
 
-- Couplage faible
-- PAS DE STATIQUE
-- IoC / DI
+- "J'aimerais bien faire des tests, mais mon code ne s'y prête pas"
+- Difficile de tester du code en isolation
+- Comment tester une interface graphique ?
+
+Écrire du code testable - des solutions
+================================================================================
+
+- Minimiser le **couplage** entre éléments
+  
+  - Éviter les méthodes statiques
+  - Éviter les ``new`` (mais comment ?)
+  - Inversion de contrôle / Injection de dépendances
+  - Loi de Demeter
+
 - Minimiser les états cachés
 - Transparence référentielle
+
+Écrire du code testable - Minimiser le couplage
+================================================================================
+
+- Permet de tester les éléments **en isolation**
+- Utilisation de *bouchons* ou *mocks*
+
+  - Implémentent les mêmes interfaces
+  - Comportement simplifié
+
+Inversion de contrôle - IoC
+================================================================================
+
+- Spécifier les dépendances lors de l'**appel** du constructeur et non lors de
+sa définition.
+- Permet d'utiliser des bouchons lors des tests
+- Nécessite un peu plus de travail à l'instanciation
+
+- Voir ioc.java
+
+Injection de dépendances - DI
+================================================================================
+
+- Généralisation du concept d'Inversion de Contrôle
+- Injection des dépendances lors de l'instanciation des objets
+- Configuration des dépendances
+
+- Voir di.java
+
+Loi de Demeter / Principe de connaissance minimale
+================================================================================
+
+- Ne parlez qu'à vos amis immédiats
+- => Diminution du couplage entre composants
+- http://en.wikipedia.org/wiki/Law_of_Demeter
+
+Écrire du code testable - Références
+================================================================================
+
+- Google Testing Blog : http://googletesting.blogspot.com/
+- Relation Testable / Bien conçu : http://blog.lowendahl.net/?p=306
 
 Métriques
 ********************************************************************************
