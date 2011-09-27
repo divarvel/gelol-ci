@@ -719,7 +719,7 @@ Loi de Demeter / Principe de connaissance minimale
 ================================================================================
 
 - Google Testing Blog : http://googletesting.blogspot.com/
-- Relation Testable / Bien conçu : http://blog.lowendahl.net/?p=306
+- Relation Testable / Bien conçu : http://vimeo.com/15007792
 
 Métriques
 ********************************************************************************
