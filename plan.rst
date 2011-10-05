@@ -751,6 +751,9 @@ Métriques
 Objectifs
 ================================================================================
 
+- Discuter les mesures de la qualité du code
+- Découvrir comment évaluer les codes automatiquement
+
 S'assurer de la qualité du code
 ================================================================================
 
@@ -762,19 +765,81 @@ S'assurer de la qualité du code
 
 - Nécessité de mesures plus fines que « Ça marche / Ça marche pas »
 
+Une définition stricte de la qualité des codes ?
+================================================================================
+
+- Impossible : trop de paramètres à prendre en compte. On ne peut pas sortir une 
+  "formule magique".
+- Besoin de mettre en place des mesures dédiées.
+
+
 Quelques métriques
 ================================================================================
 
 - Style de codage
-
-  - Indentation
-  - Espacement
-  - Longueur des lignes
-
 - Détection de copier / coller
 - Complexité du code (complexité cyclomatique)
+- Cohérence des méthodes et des classes
 - Couplage entre les composants
 - Abstraction / Viscosité
+- …
+
+1 - Le style de codage
+================================================================================
+
+Besoin de garder les codes lisibles :
+
+- Indentation
+- Espacement
+- Longueur des lignes
+
+2 - Détection de copier / coller
+================================================================================
+
+Repérage des lignes exactement similaires dans les codes
+
+Objectifs :
+
+- Simplifier la maintenance des applications
+- Encourager la **factorisation** des codes
+- Diminuer la quantité de codes à maintenir
+
+3 - Complexité des codes - La complexité cyclomatique
+================================================================================
+
+Selon Wikipédia : "Cette mesure comptabilise le nombre de « chemins » au travers 
+d'un programme représenté sous la forme d'un graphe"
+
+Concrétement : on compte les appels à **if**, **else if**, **case**, **for**
+**while**, **&&**, **||**...
+
+- Objectif : Garder les codes simples.
+- Comment ? 
+  - Méthodes courtes.
+  - Méthodes atomiques
+
+3 - Complexité des codes - La complexité cyclomatique
+================================================================================
+
+- Effet de bord : les codes deviennent plus faciles à tester.
+- Limites : L'implémentation de certains algorithmes nécessitent d'écrire des 
+  méthodes très longues, et qui sont "atomiques"...
+- Exemple : Algorithme d'intersection robuste en 2 dimensions.
+
+4 - Complexité des codes - La cohérence entre classes et méthodes
+================================================================================
+
+Principe :
+- repérer les méthodes orphelines, les groupes de méthodes 
+indépendants, au sein d'une même classe.
+
+Objectif : 
+- Assurer le principe du devoir unique (*Single Responibility 
+Principle*) : Une classe assure une fonction définie et unique.
+
+Comment ?
+
+- En profitant du paradigme objet, en assurant une conception efficace.
 
 Continuous delivery / deployment
 ********************************************************************************
