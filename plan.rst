@@ -556,6 +556,14 @@ Pour SBT :
 Tests automatisés
 ********************************************************************************
 
+Objectif
+================================================================================
+
+- Définir ce qu'est un test unitaire
+- Décrire les apports des tests unitaires
+- Expliquer dans quels cas ils peuvent être écrits
+
+
 Problématique
 ================================================================================
 
@@ -566,17 +574,17 @@ Les logiciels sont rarement écrits en aveugle :
 - Des spécifications décrivent un comportement attendu
 - Les algorithmes sont pensés avant d'être couchés sur le papier
 
--> On peut décrire très souvent les entrées d'un traitement, et les résultats qu'il
-doit fournir en utilisant ces entrées
+-> On peut décrire très souvent les entrées d'un traitement, et les résultats 
+qu'il doit fournir en utilisant ces entrées
 
 Deux mondes s'opposent
 ================================================================================
 
 Dans un monde parfait : les développeurs sont beaux, ils codent sans introduire
-de bugs dans les logiciels...
+de bugs dans les logiciels.
 
 Dans le monde réel : les développeurs sont beaux, mais leurs codent ne marchent
-pas toujours
+pas toujours…
 
 Deux mondes s'opposent - bis
 ================================================================================
@@ -599,11 +607,11 @@ Merci *wikipedia* : .. http://fr.wikipedia.org/wiki/Test_unitaire
 Dans les faits, qui est l'unité ?
 ================================================================================
 
-Toute méthode / fonction dont les entrées et sorties attendues peuvent être décrites
-précisément.
+Toute méthode / fonction dont les entrées et sorties attendues peuvent être 
+décrites précisément.
 
-Objectif : Tester les codes aussi largement que possible, dans leurs fonctionnement
-atomique
+Objectif : Tester les codes aussi largement que possible, dans leurs 
+fonctionnements atomiques
 
 Que teste-t-on ?
 ================================================================================
@@ -616,14 +624,17 @@ Les comportements attendus, décrits par les spécifications, par la doc...
 Ce que les tests apportent
 ================================================================================
 
-- Vérification de la validité du contrat passé entre les codes et leur description
+- Vérification de la validité du contrat passé entre les codes et leur 
+  description
 - Protection contre l'introduction des régressions dans le code
 
-Ce n'est pas tout...
+Ce n'est pas tout…
 
 - Écrire des tests lors du développement d'une API force à la prendre en main
-- Lire les tests associés à un code permettent parfois de mieux comprendre leur
+- Lire les tests associés à un code permet parfois de mieux comprendre leur
   fonctionnement.
+- Utilisation avancée de l'API pendant le développement - La bibliothèque est-
+  elle utilisable ?
 
 Ce que les tests n'apportent pas, et n'apporteront jamais
 ================================================================================
@@ -642,20 +653,22 @@ de bugs dans un logiciel**, et ce quelle que soit la couverture.
 - Testing shows the presence, not the absence of bugs 
 - E. Djikstra
 
-Quid de la présence d'un bug dans les tests.
+Quid de la présence d'un bug dans les tests ?
 
 Écrire les tests en premier
 ================================================================================
 
 TDD - Test Driven Development : écrire les tests avant le code.
 
-- permet de formaliser les spécifications
-- s'assurer de la couverture du code 
+- Formalisation des spécifications
+- Assurance de la couverture du code 
 
 BDD - Behaviour Driven Development : écrire les spécifications sous forme de
 tests.
 
-- tests écrits de manière intelligible
+Les tests :
+
+- sont écrits de manière intelligible
 - décrivent simplement le comportement de chaque élément
 
 - voir specs.scala
@@ -689,6 +702,10 @@ tests.
   - Implémentent les mêmes interfaces
   - Comportement simplifié
 
+Objectif : Garder à l'esprit qu'on ne veut tester qu'une **unité**. Si on peut,
+on doit éviter d'être dépendant de briques éloignés de la méthode/fonction que 
+l'on teste.
+
 Inversion de contrôle - IoC
 ================================================================================
 
@@ -715,6 +732,13 @@ Loi de Demeter / Principe de connaissance minimale
 - => Diminution du couplage entre composants
 - http://en.wikipedia.org/wiki/Law_of_Demeter
 
+En conclusion, quelques bonnes pratiques
+================================================================================
+
+- Écrire des tests courts
+- Écrire des tests clairs
+- Documenter les tests
+
 Écrire du code testable - Références
 ================================================================================
 
@@ -723,6 +747,9 @@ Loi de Demeter / Principe de connaissance minimale
 
 Métriques
 ********************************************************************************
+
+Objectifs
+================================================================================
 
 S'assurer de la qualité du code
 ================================================================================
