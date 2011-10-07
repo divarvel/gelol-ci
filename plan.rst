@@ -693,7 +693,7 @@ Inversion de contrôle - IoC
 ================================================================================
 
 - Spécifier les dépendances lors de l'**appel** du constructeur et non lors de
-sa définition.
+  sa définition.
 - Permet d'utiliser des bouchons lors des tests
 - Nécessite un peu plus de travail à l'instanciation
 
