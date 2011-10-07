@@ -647,11 +647,14 @@ un logiciel.
   configurations surprenantes... et peuvent être le fruit de l'interaction entre
   plusieurs briques logicielles pourtant indépendantes en apparence.
 
+Ce que les tests n'apportent pas, et n'apporteront jamais
+================================================================================
+
 Mais surtout... **La présence de tests unitaires ne peut garantir l'absence
 de bugs dans un logiciel**, et ce quelle que soit la couverture.
 
 - Testing shows the presence, not the absence of bugs 
-- E. Djikstra
+- Edsger Djikstra
 
 Quid de la présence d'un bug dans les tests ?
 
@@ -810,7 +813,7 @@ Objectifs :
 Selon Wikipédia : "Cette mesure comptabilise le nombre de « chemins » au travers 
 d'un programme représenté sous la forme d'un graphe"
 
-Concrétement : on compte les appels à **if**, **else if**, **case**, **for**
+Concrétement : on compte les appels à **if**, **else if**, **case**, **for**,
 **while**, **&&**, **||**...
 
 - Objectif : Garder les codes simples.
@@ -841,14 +844,56 @@ Comment ?
 
 - En profitant du paradigme objet, en assurant une conception efficace.
 
+Continuous integration
+********************************************************************************
+
+On met tout ensemble
+================================================================================
+
+- Intégration au système de versionnement
+- Compilation du projet
+- Exécution des tests
+- Calcul des Métriques
+
+Intérêt
+================================================================================
+
+- Vision claire de l'état du projet
+- Assurance qualité en continu
+- Taches potentiellement lourdes déportées sur un serveur distant
+
+Intérêt
+================================================================================
+
+- Fun (http://www.flickr.com/photos/unavoidablegrain/4622043091/sizes/z/in/photostream/)
+
+.. image:: resources/feu.jpg
+
+Dans les faits
+================================================================================
+
+- Le serveur d'intégration "surveille" le dépôt
+- À chaque modification, le serveur d'Intégration
+  
+  - recompile
+  - exécute les tests
+  - calcule les métriques
+  - Prévient qui de droit en cas de problème
+
+
 Continuous delivery / deployment
 ********************************************************************************
 
-Automatiser ce qui est automatisable
+Continuous delivery
 ================================================================================
 
-Maintenant que l'on est sûr de la qualité du code produit, pourquoi ne pas
-l'envoyer tout de suite en production ?
+- Après chaque build réussi, mettre à dispostion un livrable
+
+
+Continuous Deployment
+================================================================================
+
+- Après chaque build réussi, mise en production immédiate
 
 Les bénéfices sont multiples :
 
@@ -867,9 +912,3 @@ SaaS - Software as a Service
 
 - Environnement d'exécution contrôlé
 - Changement accepté par les utilisateurs
-- **Application Web**
-
-Google Chrome
-
-- Mise à jour *à chaud*
-- Notion de numéro de version obsolète
