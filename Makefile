@@ -5,9 +5,10 @@ pdf: slides.tex
 	@pdflatex slides.tex
 	@pdflatex slides.tex
 
-handout: slides.tex
-	@sed -i slides.tex -e '/\setbeameroption/ a\
-	\\setbeameroption{handout}'
+handouttex: slides.tex
+	@sed -i slides.tex -e 's/t,french/t,french,handout/'
+
+handout: handouttex pdf
 
 slides.tex: plan.rst
 	@echo "Génération des images avec dot"
