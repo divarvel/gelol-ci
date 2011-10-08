@@ -19,7 +19,8 @@ slides.tex: plan.rst
 		--centerfigs="True" \
 		plan.rst > slides.tex
 	@echo "Conversion en utf8"
-	@iconv -f ISO8859-1 -t UTF-8 -o slides.tex slides.tex
+	@iconv -f ISO8859-1 -t UTF-8 -o slides-utf.tex slides.tex
+	@mv slides-utf.tex slides.tex
 	@sed -i slides.tex -e 's/latin1/utf8/'
 	@echo "Tweaks d'affichage"
 	@sed -i slides.tex -e '/\usetheme/ a\
