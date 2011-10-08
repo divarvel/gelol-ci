@@ -832,19 +832,55 @@ Concrétement : on compte les appels à **if**, **else if**, **case**, **for**,
 4 - Complexité des codes - La cohérence entre classes et méthodes
 ================================================================================
 
-Principe :
-
-- Repérer les méthodes orphelines, les groupes de méthodes 
+Principe : Repérer les méthodes orphelines, les groupes de méthodes 
 indépendants, au sein d'une même classe.
 
-Objectif : 
+Objectif :  Assurer le principe du devoir unique (*Single Responibility* 
+*Principle*) : Une classe assure une fonction définie et unique.
 
-- Assurer le principe du devoir unique (*Single Responibility 
-Principle*) : Une classe assure une fonction définie et unique.
+Comment : En profitant du paradigme objet, en assurant une conception efficace.
 
-Comment ?
+Détection des mauvaises pratiques (1)
+================================================================================
 
-- En profitant du paradigme objet, en assurant une conception efficace.
+Dans certains langages, certaines façons de coder sont considérées comme des 
+mauvaises pratiques. Par exemple, en Java :
+
+- Ne pas s'assurer que les flux d'entrée/sortie ont bien été fermés
+- Ne pas mettre d'accolades autour bloc d'instructions d'un if s'il ne comporte
+  qu'une seule ligne.
+- Ne pas déclarer les "constantes" **final**
+- …
+
+Détection des mauvaises pratiques (2)
+================================================================================
+
+Ces configurations peuvent être détectées, avec quelques nuances :
+
+- On peut trouver des faux positifs.
+- Toutes les violations n'ont pas la même gravité.
+- De tels concepts ne peuvent être appliqués que sur des langages très 
+  éprouvés. Ils sont longs à mettre en place, et représente le fruit d'années
+  d'expérience.
+
+Les métriques et la dette technique
+================================================================================
+
+Comment expliquer simplement les problèmes mis en lumière par ces métriques ?
+
+-> En parlant la **dette technique**
+
+**La dette technique représente des parties de code non utilisées ou dans 
+lesquelles il est difficile d'effectuer des modifications et évolutions.**
+
+En **chiffrant** les problèmes recensés :
+
+- Pour chaque problème et violation, chiffrer le temps moyen nécessaire à une
+  correction, pour un développeur.
+- Remplacer par le coût d'un développeur
+
+La somme obtenue correspond à l'argent nécessaire en théorie pour résorber 
+l'intégralité de la dette technique.
 
 Intégration continue
 ********************************************************************************
