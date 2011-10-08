@@ -833,10 +833,12 @@ Concrétement : on compte les appels à **if**, **else if**, **case**, **for**,
 ================================================================================
 
 Principe :
-- repérer les méthodes orphelines, les groupes de méthodes 
+
+- Repérer les méthodes orphelines, les groupes de méthodes 
 indépendants, au sein d'une même classe.
 
 Objectif : 
+
 - Assurer le principe du devoir unique (*Single Responibility 
 Principle*) : Une classe assure une fonction définie et unique.
 
@@ -844,16 +846,79 @@ Comment ?
 
 - En profitant du paradigme objet, en assurant une conception efficace.
 
-Continuous integration
+Intégration continue
 ********************************************************************************
+
+Problématique
+================================================================================
+
+Nous avons un ensemble d'outils sous la main (versionnement, outil de 
+construction, tests unitaires, qualité de code...).
+
+Des problèmes subsistent :
+
+- Certaines tâches sont très lourdes (calcul des métriques)
+- Nous ne somme pas à l'abri d'un oubli - Même avec de bons outils, les
+  développeurs font des erreurs ;-)
+
 
 On met tout ensemble
 ================================================================================
 
-- Intégration au système de versionnement
-- Compilation du projet
-- Exécution des tests
-- Calcul des Métriques
+- Système de versionnement
+- Outil de construction
+- Tests unitaires
+- Calcul des métriques
+
+Le système de versionnement...
+================================================================================
+
+Le serveur d'intégration dispose d'un accès aux codes (copie/dépôt local). Il
+peut :
+
+- Se connecter à la base de code
+- Scruter les modifications
+- Rappatrier la dernière version des codes.
+
+L'outil de construction...
+================================================================================
+
+Lorsqu'une modification est rappatriée :
+
+- Compilation des codes
+- Exécution 
+
+On peut se servir des dépendances transitives et des projets riches :
+
+- Construction des projets multi-modules
+- Construction d'un projet après modification dans une dépendance (pour 
+  vérifier qu'une modification extérieure n'a pas modifié le projet).
+
+Les tests unitaires
+================================================================================
+
+Des tendances peuvent être dégagées de l'exécution des tests :
+
+- Des tests ont été cassés ?
+- Des tests ont été corrigés ?
+- Dans quel sens la qualité logicielle évolue-t-elle ?
+
+En cas de problèmes...
+================================================================================
+
+Des alertes peuvent être levées :
+
+- Dans l'interface du serveur.
+- Par mail.
+- Par SMS (!).
+
+Et aussi...
+================================================================================
+
+D'autres actions peuvent être déclenchées régulièrement, indépendamment de la
+scrutation
+
+Exemples : Calcul des métriques
 
 Intérêt
 ================================================================================
@@ -868,18 +933,6 @@ Intérêt
 - Fun (http://www.flickr.com/photos/unavoidablegrain/4622043091/sizes/z/in/photostream/)
 
 .. image:: resources/feu.jpg
-
-Dans les faits
-================================================================================
-
-- Le serveur d'intégration "surveille" le dépôt
-- À chaque modification, le serveur d'Intégration
-  
-  - recompile
-  - exécute les tests
-  - calcule les métriques
-  - Prévient qui de droit en cas de problème
-
 
 Continuous delivery / deployment
 ********************************************************************************
@@ -912,3 +965,4 @@ SaaS - Software as a Service
 
 - Environnement d'exécution contrôlé
 - Changement accepté par les utilisateurs
+
