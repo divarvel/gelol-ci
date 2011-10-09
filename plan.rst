@@ -745,6 +745,16 @@ En conclusion, quelques bonnes pratiques
 Écrire du code testable - Références
 ================================================================================
 
+Quelques frameworks d'écriture de tests unitaires :
+
+- JUnit (Java)
+- PhpUnit (PHP)
+- Test::Unit (Ruby)
+- PyUnit (Python)
+- …
+
+Deux liens utiles :
+
 - Google Testing Blog : http://googletesting.blogspot.com/
 - Relation Testable / Bien conçu : http://vimeo.com/15007792
 
@@ -817,7 +827,8 @@ Concrétement : on compte les appels à **if**, **else if**, **case**, **for**,
 **while**, **&&**, **||**...
 
 - Objectif : Garder les codes simples.
-- Comment ? 
+- Comment ?
+
   - Méthodes courtes.
   - Méthodes atomiques
 
@@ -881,6 +892,17 @@ En **chiffrant** les problèmes recensés :
 
 La somme obtenue correspond à l'argent nécessaire en théorie pour résorber 
 l'intégralité de la dette technique.
+
+Quelques ressources...
+================================================================================
+
+Plein d'infos sur les métriques sur :
+
+http://docs.codehaus.org/display/SONAR/Documentation
+
+C'est la documentation de 
+
+http://www.sonarcource.org.
 
 Intégration continue
 ********************************************************************************
@@ -969,6 +991,15 @@ Intérêt
 - Fun (http://www.flickr.com/photos/unavoidablegrain/4622043091/sizes/z/in/photostream/)
 
 .. image:: resources/feu.jpg
+
+Un exemple de serveur d'intégration
+================================================================================
+
+http://jenkins-ci.org/
+
+Pour des infos sur le logiciel :
+
+**Jenkins, the definitive guide**
 
 Continuous delivery / deployment
 ********************************************************************************
