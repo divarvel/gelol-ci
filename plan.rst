@@ -761,13 +761,7 @@ Deux liens utiles :
 Métriques
 ********************************************************************************
 
-Objectifs
-================================================================================
-
-- Discuter les mesures de la qualité du code
-- Découvrir comment évaluer les codes automatiquement
-
-S'assurer de la qualité du code
+Problématique
 ================================================================================
 
 - Le code est sans *bugs*, certes.
@@ -777,6 +771,12 @@ S'assurer de la qualité du code
   - Fait-il saigner les yeux ?
 
 - Nécessité de mesures plus fines que « Ça marche / Ça marche pas »
+
+Objectifs
+================================================================================
+
+- Discuter les mesures de la qualité du code
+- Découvrir comment évaluer les codes automatiquement
 
 Une définition stricte de la qualité des codes ?
 ================================================================================
@@ -916,9 +916,17 @@ construction, tests unitaires, qualité de code...).
 Des problèmes subsistent :
 
 - Certaines tâches sont très lourdes (calcul des métriques)
-- Nous ne somme pas à l'abri d'un oubli - Même avec de bons outils, les
+- Nous ne sommes pas à l'abri d'un oubli - Même avec de bons outils, les
   développeurs font des erreurs ;-)
 
+Objectifs
+================================================================================
+
+Déporter le traitement en dehors des machines des développeurs
+
+- Réaliser les traitements longs de manière asynchrone et non bloquante
+- Automatisation / Systématisation des tests et de la scrutation de la qualité
+  du code
 
 On met tout ensemble
 ================================================================================
