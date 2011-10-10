@@ -452,7 +452,7 @@ Concrètement, que se passe-t-il ?
 Les dépendances sont résolues.
 
 - Maven vérifie que toutes les dépendances (utilisées...) sont présentes localement.
-- Si certaines sont manquantes -> Tentative de rappatriement depuis un des dépôts déclarés.
+- Si certaines sont manquantes -> Tentative de rapatriement depuis un des dépôts déclarés.
 - En cas d'échec -> erreur de compilation... ;-)
 
 Le *classpath* du compilateur Java est alimenté comme il se doit.
@@ -735,6 +735,13 @@ Loi de Demeter / Principe de connaissance minimale
 - => Diminution du couplage entre composants
 - http://en.wikipedia.org/wiki/Law_of_Demeter
 
+Transparence référentielle
+================================================================================
+
+- Respecter la définition mathématique d'une fonction
+- On peut remplacer l'appel d'une fonction par son résultat
+- Ainsi, on peut vraiment tester en isolation
+
 En conclusion, quelques bonnes pratiques
 ================================================================================
 
@@ -747,10 +754,10 @@ En conclusion, quelques bonnes pratiques
 
 Quelques frameworks d'écriture de tests unitaires :
 
-- JUnit (Java)
-- PhpUnit (PHP)
-- Test::Unit (Ruby)
-- PyUnit (Python)
+- Java : JUnit 
+- PHP : PhpUnit
+- Ruby : Test::Unit (Unitaire) / Rspecs (BDD)
+- Python : PyUnit
 - …
 
 Deux liens utiles :
@@ -760,6 +767,12 @@ Deux liens utiles :
 
 Métriques
 ********************************************************************************
+
+Objectifs
+================================================================================
+
+- Discuter les mesures de la qualité du code
+- Découvrir comment évaluer les codes automatiquement
 
 Problématique
 ================================================================================
@@ -771,12 +784,6 @@ Problématique
   - Fait-il saigner les yeux ?
 
 - Nécessité de mesures plus fines que « Ça marche / Ça marche pas »
-
-Objectifs
-================================================================================
-
-- Discuter les mesures de la qualité du code
-- Découvrir comment évaluer les codes automatiquement
 
 Une définition stricte de la qualité des codes ?
 ================================================================================
@@ -902,10 +909,17 @@ http://docs.codehaus.org/display/SONAR/Documentation
 
 C'est la documentation de 
 
-http://www.sonarcource.org.
+http://www.sonarsource.org.
 
 Intégration continue
 ********************************************************************************
+
+Objectifs
+================================================================================
+
+- Faire fonctionner ensemble les outils abordés
+- Aller au bout de l'automatisation
+
 
 Problématique
 ================================================================================
@@ -918,15 +932,6 @@ Des problèmes subsistent :
 - Certaines tâches sont très lourdes (calcul des métriques)
 - Nous ne sommes pas à l'abri d'un oubli - Même avec de bons outils, les
   développeurs font des erreurs ;-)
-
-Objectifs
-================================================================================
-
-Déporter le traitement en dehors des machines des développeurs
-
-- Réaliser les traitements longs de manière asynchrone et non bloquante
-- Automatisation / Systématisation des tests et de la scrutation de la qualité
-  du code
 
 On met tout ensemble
 ================================================================================
@@ -944,12 +949,12 @@ peut :
 
 - Se connecter à la base de code
 - Scruter les modifications
-- Rappatrier la dernière version des codes.
+- Rapatrier la dernière version des codes.
 
 L'outil de construction...
 ================================================================================
 
-Lorsqu'une modification est rappatriée :
+Lorsqu'une modification est rapatriée :
 
 - Compilation des codes
 - Exécution 
