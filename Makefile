@@ -39,6 +39,9 @@ slides.tex: plan.rst
 	@sed -i slides.tex -e '/\end{frame}/ i\
 	\\end{block}'
 	@echo "Ajout d'informations"
+	@sed -i slides.tex -e 's/^Intégration continue - dummy title//'
+	@sed -i slides.tex -e '/\date/ a\
+	\\title{Intégration Continue}'
 	@sed -i slides.tex -e 's/author{}/author{Clément \\textsc{Delafargue} \\and Alexis \\textsc{Guéganno}}/'
 	@sed -i slides.tex -e 's/date{}/date{26 septembre 2011}/'
 
