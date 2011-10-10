@@ -583,7 +583,7 @@ Deux mondes s'opposent
 Dans un monde parfait : les développeurs sont beaux, ils codent sans introduire
 de bugs dans les logiciels.
 
-Dans le monde réel : les développeurs sont beaux, mais leurs codent ne marchent
+Dans le monde réel : les développeurs sont beaux, mais leurs codes ne marchent
 pas toujours…
 
 Deux mondes s'opposent - bis
@@ -843,7 +843,7 @@ Concrétement : on compte les appels à **if**, **else if**, **case**, **for**,
 ================================================================================
 
 - Effet de bord : les codes deviennent plus faciles à tester.
-- Limites : L'implémentation de certains algorithmes nécessitent d'écrire des 
+- Limites : L'implémentation de certains algorithmes nécessite d'écrire des 
   méthodes très longues, et qui sont "atomiques"...
 - Exemple : Algorithme d'intersection robuste en 2 dimensions.
 
@@ -865,7 +865,7 @@ Dans certains langages, certaines façons de coder sont considérées comme des
 mauvaises pratiques. Par exemple, en Java :
 
 - Ne pas s'assurer que les flux d'entrée/sortie ont bien été fermés
-- Ne pas mettre d'accolades autour bloc d'instructions d'un if s'il ne comporte
+- Ne pas mettre d'accolades autour du bloc d'instructions d'un if s'il ne comporte
   qu'une seule ligne.
 - Ne pas déclarer les "constantes" **final**
 - …
@@ -878,7 +878,7 @@ Ces configurations peuvent être détectées, avec quelques nuances :
 - On peut trouver des faux positifs.
 - Toutes les violations n'ont pas la même gravité.
 - De tels concepts ne peuvent être appliqués que sur des langages très 
-  éprouvés. Ils sont longs à mettre en place, et représente le fruit d'années
+  éprouvés. Ils sont longs à mettre en place, et représentent le fruit d'années
   d'expérience.
 
 Les métriques et la dette technique
@@ -886,7 +886,7 @@ Les métriques et la dette technique
 
 Comment expliquer simplement les problèmes mis en lumière par ces métriques ?
 
--> En parlant la **dette technique**
+-> En parlant de **dette technique**
 
 **La dette technique représente des parties de code non utilisées ou dans 
 lesquelles il est difficile d'effectuer des modifications et évolutions.**
@@ -909,7 +909,11 @@ http://docs.codehaus.org/display/SONAR/Documentation
 
 C'est la documentation de 
 
-http://www.sonarsource.org.
+http://www.sonarsource.org
+
+Pour la dette technique :
+
+http://blog.xebia.fr/2011/09/30/livre-blanc-maitrisez-votre-dette-technique/
 
 Intégration continue
 ********************************************************************************
@@ -957,7 +961,7 @@ L'outil de construction...
 Lorsqu'une modification est rapatriée :
 
 - Compilation des codes
-- Exécution 
+- Exécution des tests 
 
 On peut se servir des dépendances transitives et des projets riches :
 
@@ -989,14 +993,14 @@ Et aussi...
 D'autres actions peuvent être déclenchées régulièrement, indépendamment de la
 scrutation
 
-Exemples : Calcul des métriques
+Exemple : Calcul des métriques
 
 Intérêt
 ================================================================================
 
 - Vision claire de l'état du projet
 - Assurance qualité en continu
-- Taches potentiellement lourdes déportées sur un serveur distant
+- Tâches potentiellement lourdes déportées sur un serveur distant
 
 Intérêt
 ================================================================================
