@@ -2,6 +2,16 @@
 Intégration continue - dummy title
 ================================================================================
 
+Objectifs du cours
+********************************************************************************
+
+Ce cours est avant tout une introduction à certains outils, à certaines
+techniques parfois utilisées dans l'industrie afin de favoriser les
+développements logiciels.
+
+Il n'est pas question ici de vous faire devenir spécialiste des technologies
+présentées.
+
 Contrôle de version
 ********************************************************************************
 
@@ -32,17 +42,70 @@ Première approche :
 
 Compréhension difficile de l'évolution des codes.
 
-1 - S : Utiliser des *diffs*
+1 : Utiliser des *diffs*
 ================================================================================
 
-Identification immédiate des évolutions.
+Dans un travail collaboratif, les fichiers évoluent petit à petit. Pour
+comparer deux versions d'un même fichier, on peut utiliser un *diff*
 
-Application du patch représentant la modification
+Identification immédiate des évolutions. Le diff permet de voir rapidement
+les lignes :
+
+- modifiées
+- ajoutées
+- supprimées
+
+
+1 : Utiliser des *diffs* - exemple
+================================================================================
+
+On compare deux fichiers :
+
+::
+
+  Hello
+  world
+  bonjour monde !
+
+et
+
+::
+
+  Hello !
+  bonjour monde !
+  Au revoir !
+
+
+1 : Utiliser des *diffs* - résultat
+================================================================================
+
+Un exemple de diff pour le fichier précédent.
+
+::
+
+  % diff -y fic fic2               
+      Hello               | Hello !
+      world               <
+      bonjour monde !       bonjour monde !
+                          > Au revoir !
+
+On retrouve bien tous les types de modification dans le diff.
+
+
+1 : Utiliser des *diffs* (1)
+================================================================================
+
+Le résultat d'un diff peut être utilisé sur l'ancienne version d'un fichier
+pour produire la nouvelle version. On applique un *patch*. Un développeur peut
+utiliser un diff pour mettre ses codes à jour.
 
 Des limites persistent :
 
 - Pas de concept de projet
 - Pas de gestion des ajouts/suppression de fichiers
+- Plusieurs types de diffs... On utilise généralement des "diffs unifiés" pour
+  simplifier les échanges.
+ 
 
 2 - Justifier les modifications
 ================================================================================
@@ -277,6 +340,7 @@ Opérations **très** répétitives.
 Besoins
 ================================================================================
 
+Le système de gestion de versions
 - Rendre les opérations reproductibles
 - Automatiser les taches
 - (éventuellement) brancher des traitements additionnels
