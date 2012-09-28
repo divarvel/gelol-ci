@@ -1,9 +1,12 @@
 ================================================================================
-Intégration continue - dummy title
+Intégration continue
 ================================================================================
 
 Objectifs du cours
 ********************************************************************************
+
+Objectifs
+================================================================================
 
 Ce cours est avant tout une introduction à certains outils, à certaines
 techniques parfois utilisées dans l'industrie afin de favoriser les

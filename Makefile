@@ -1,5 +1,22 @@
 all: pdf clean
 
+pandoctex:
+	@echo "Génération des images avec dot"
+	@dot -Tpng -o heritage.png inheritance.gv
+	@echo "Génération du fichier tex"
+	@pandoc -f rst -t beamer -o slides.tex --template default.beamer\
+		-V lang:french\
+		-V colortheme:seahorse\
+		-V date:"1er octobre 2012"\
+		plan.rst
+html:
+	@pandoc \
+		-f rst -t dzslides -o slides.html --template default.dzslides\
+		-V lang:french\
+		-V date:"1er octobre 2012"\
+		-V author:"Clément Delafargue, Alexis Guéganno"\
+		plan.rst
+
 pdf: slides.tex
 	@echo "Génération du PDF"
 	@pdflatex slides.tex
