@@ -277,10 +277,11 @@ Plus de contraintes sur l'état de la branche de travail
 Et aussi dans git...- Ajouts supplémentaires
 ================================================================================
 
+- staging area
 - bisect
 - rebase
 - cherry-picking
-- stash  
+- stash
 - …
 
 Quelques bonnes pratiques de versionnement
@@ -288,20 +289,30 @@ Quelques bonnes pratiques de versionnement
 
 Les fichiers à ne **jamais** commiter/pusher : 
 
-- Les fichiers compilés (Les *.class* en Java, les *.o* en C... les *.tex* et 
-  le fichier généré par dot pour ce document...)
+- Les fichiers compilés (Les *.class* en Java, les *.o* en C...
 - Les fichiers de configuration inutiles pour le projet (Au hasard les fichiers
   de configuration d'Eclipse)
 
 -> Utilisez les marqueurs à disposition (svn:ignore, .gitignore...) pour éviter
 de commiter n'importe quoi.
+-> Vérifiez ce que vous vous apprêtez à commiter
 
 Quelques bonnes pratiques de versionnement
 ================================================================================
 
+- Ne *jamais* commiter en aveugle
 - Commiter souvent pour rendre les commits aussi lisibles que possibles.
 - Ne pas oublier que certains outils doivent être utilisés avec parcimonie (git
   rebase, par exemple)
+- …
+
+Quelques bonnes pratiques de versionnement - git
+================================================================================
+
+- Utiliser la *staging area*
+- ``git add --patch`` pour choisir les modifications à commiter
+- ``git commit --verbose`` ou ``git diff --cached`` pour voir ce que l'on
+  s'apprête à commiter
 - …
 
 Quelques ressources
