@@ -413,6 +413,7 @@ Besoins
 ================================================================================
 
 Le système de gestion de versions
+
 - Rendre les opérations reproductibles
 - Automatiser les taches
 - (éventuellement) brancher des traitements additionnels
