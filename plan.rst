@@ -325,6 +325,64 @@ Ce document est versionné sous git :
 
 *git clone https://github.com/divarvel/gelol-ci.git*
 
+Revue de code
+********************************************************************************
+
+Problématique
+================================================================================
+
+Détecter les erreurs au plus tôt dans le cycle de développement.
+
+Autant que faire se peut… avant la mise en production.
+
+Solution
+================================================================================
+
+Pratiquer la *revue de code*
+
+- Relecture (systématique ou non) avant intégration du code
+- Améliore la qualité du code
+- Très bon mécanisme de formation
+
+La revue de code
+================================================================================
+
+- Commit par commit
+- Avant intégration du code (branches)
+- En direct (pair programming)
+
+Commit par commit
+================================================================================
+
+Surveiller les commits qui passent et les relire un par un.
+
+Demander des modifications après coup.
+
+Adapté si on utilise un système de versionnement centralisé, sans branches
+
+Fastidieux
+
+Avant intégration du code
+================================================================================
+
+Si chaque développement a sa branche, on peut relire le code avant la fusion
+de la branche.
+
+Marche aussi si chaque développeur a son dépôt.
+
+Facilité dans github grâce aux *pull requests*
+
+En direct - Pair programming
+================================================================================
+
+Un poste de travail pour deux. Un développeur code, l'autre commente / guide /
+pointe les erreurs.
+
+Gain de productivité appréciable (idéalement supérieur à un facteur 2).
+
+Au cœur de l'extreme programming (XP)
+
+
 Builds automatisés
 ********************************************************************************
 
