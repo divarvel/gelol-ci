@@ -303,7 +303,7 @@ de commiter n'importe quoi.
 Quelques bonnes pratiques de versionnement
 ================================================================================
 
-- Ne *jamais* commiter en aveugle
+- Ne **jamais** commiter en aveugle
 - Commiter souvent pour rendre les commits aussi lisibles que possibles.
 - Ne pas oublier que certains outils doivent être utilisés avec parcimonie (git
   rebase, par exemple)
@@ -337,7 +337,7 @@ http://hgbook.red-bean.com/
 
 Ce document est versionné sous git :
 
-*git clone https://github.com/divarvel/gelol-ci.git*
+``git clone https://github.com/divarvel/gelol-ci.git``
 
 Revue de code
 ********************************************************************************
@@ -922,8 +922,8 @@ Objectifs :
 Selon Wikipédia : "Cette mesure comptabilise le nombre de « chemins » au travers 
 d'un programme représenté sous la forme d'un graphe"
 
-Concrétement : on compte les appels à **if**, **else if**, **case**, **for**,
-**while**, **&&**, **||**...
+Concrétement : on compte les appels à ``if``, ``else if``, ``case``, ``for``,
+``while``, ``&&``, ``||``...
 
 - Objectif : Garder les codes simples.
 - Comment ?
@@ -959,7 +959,7 @@ mauvaises pratiques. Par exemple, en Java :
 - Ne pas s'assurer que les flux d'entrée/sortie ont bien été fermés
 - Ne pas mettre d'accolades autour du bloc d'instructions d'un if s'il ne comporte
   qu'une seule ligne.
-- Ne pas déclarer les "constantes" **final**
+- Ne pas déclarer les "constantes" ``final``
 - …
 
 Détection des mauvaises pratiques (2)
