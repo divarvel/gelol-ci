@@ -27,9 +27,7 @@ handouttex: slides.tex
 
 handout: handouttex pdf
 
-slides.tex: plan.rst
-	@echo "Génération des images avec dot"
-	@dot -Tpng -o heritage.png inheritance.gv
+slides.tex: plan.rst heritage.png
 	@echo "Génération du fichier tex"
 	@rst2beamer --title="GELOL" \
 		--language="fr" \
@@ -62,6 +60,9 @@ slides.tex: plan.rst
 	@sed -i slides.tex -e 's/author{}/author{Clément \\textsc{Delafargue} \\and Alexis \\textsc{Guéganno}}/'
 	@sed -i slides.tex -e 's/date{}/date{26 septembre 2011}/'
 
+heritage.png: inheritance.gv
+	@echo "Génération des images avec dot"
+	@dot -Tpng -o heritage.png inheritance.gv
 
 clean:
 	@echo "Nettoyage des fichiers temporaires"
