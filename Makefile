@@ -1,6 +1,6 @@
 all: pdf clean
 
-pdf: slides.tex
+pdf: slides.tex heritage.png
 	@echo "Génération du PDF"
 	@pdflatex slides.tex
 	@pdflatex slides.tex
@@ -10,7 +10,7 @@ handouttex: slides.tex
 
 handout: handouttex pdf
 
-slides.tex: plan.rst heritage.png
+slides.tex: plan.rst
 	@echo "Génération du fichier tex"
 	@rst2beamer --title="GELOL" \
 		--language="fr" \
