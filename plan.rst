@@ -280,10 +280,11 @@ Plus de contraintes sur l'état de la branche de travail
 Et aussi dans git...- Ajouts supplémentaires
 ================================================================================
 
+- staging area
 - bisect
 - rebase
 - cherry-picking
-- stash  
+- stash
 - …
 
 Quelques bonnes pratiques de versionnement
@@ -291,20 +292,30 @@ Quelques bonnes pratiques de versionnement
 
 Les fichiers à ne **jamais** commiter/pusher : 
 
-- Les fichiers compilés (Les *.class* en Java, les *.o* en C... les *.tex* et 
-  le fichier généré par dot pour ce document...)
+- Les fichiers compilés (Les *.class* en Java, les *.o* en C...
 - Les fichiers de configuration inutiles pour le projet (Au hasard les fichiers
   de configuration d'Eclipse)
 
 -> Utilisez les marqueurs à disposition (svn:ignore, .gitignore...) pour éviter
 de commiter n'importe quoi.
+-> Vérifiez ce que vous vous apprêtez à commiter
 
 Quelques bonnes pratiques de versionnement
 ================================================================================
 
+- Ne *jamais* commiter en aveugle
 - Commiter souvent pour rendre les commits aussi lisibles que possibles.
 - Ne pas oublier que certains outils doivent être utilisés avec parcimonie (git
   rebase, par exemple)
+- …
+
+Quelques bonnes pratiques de versionnement - git
+================================================================================
+
+- Utiliser la *staging area*
+- ``git add --patch`` pour choisir les modifications à commiter
+- ``git commit --verbose`` ou ``git diff --cached`` pour voir ce que l'on
+  s'apprête à commiter
 - …
 
 Quelques ressources
@@ -327,6 +338,64 @@ http://hgbook.red-bean.com/
 Ce document est versionné sous git :
 
 *git clone https://github.com/divarvel/gelol-ci.git*
+
+Revue de code
+********************************************************************************
+
+Problématique
+================================================================================
+
+Détecter les erreurs au plus tôt dans le cycle de développement.
+
+Autant que faire se peut… avant la mise en production.
+
+Solution
+================================================================================
+
+Pratiquer la *revue de code*
+
+- Relecture (systématique ou non) avant intégration du code
+- Améliore la qualité du code
+- Très bon mécanisme de formation
+
+La revue de code
+================================================================================
+
+- Commit par commit
+- Avant intégration du code (branches)
+- En direct (pair programming)
+
+Commit par commit
+================================================================================
+
+Surveiller les commits qui passent et les relire un par un.
+
+Demander des modifications après coup.
+
+Adapté si on utilise un système de versionnement centralisé, sans branches
+
+Fastidieux
+
+Avant intégration du code
+================================================================================
+
+Si chaque développement a sa branche, on peut relire le code avant la fusion
+de la branche.
+
+Marche aussi si chaque développeur a son dépôt.
+
+Facilité dans github grâce aux *pull requests*
+
+En direct - Pair programming
+================================================================================
+
+Un poste de travail pour deux. Un développeur code, l'autre commente / guide /
+pointe les erreurs.
+
+Gain de productivité appréciable (idéalement supérieur à un facteur 2).
+
+Au cœur de l'extreme programming (XP)
+
 
 Builds automatisés
 ********************************************************************************
@@ -359,6 +428,9 @@ Fonctionne sur le principe de **cibles**.
 
 - actions associées à chaque cible
 - dépendances entre cibles
+
+Make
+================================================================================
 
 Mais
 
@@ -750,66 +822,7 @@ Les tests :
 - Difficile de tester du code en isolation
 - Comment tester une interface graphique ?
 
-Écrire du code testable - des solutions
-================================================================================
-
-- Minimiser le **couplage** entre éléments
-  
-  - Éviter les méthodes statiques
-  - Éviter les ``new`` (mais comment ?)
-  - Inversion de contrôle / Injection de dépendances
-  - Loi de Demeter
-
-- Minimiser les états cachés
-- Transparence référentielle
-
-Écrire du code testable - Minimiser le couplage
-================================================================================
-
-- Permet de tester les éléments **en isolation**
-- Utilisation de *bouchons* ou *mocks*
-
-  - Implémentent les mêmes interfaces
-  - Comportement simplifié
-
-Objectif : Garder à l'esprit qu'on ne veut tester qu'une **unité**. Si on peut,
-on doit éviter d'être dépendant de briques éloignés de la méthode/fonction que 
-l'on teste.
-
-Inversion de contrôle - IoC
-================================================================================
-
-- Spécifier les dépendances lors de l'**appel** du constructeur et non lors de
-  sa définition.
-- Permet d'utiliser des bouchons lors des tests
-- Nécessite un peu plus de travail à l'instanciation
-
-- Voir ioc.java
-
-Injection de dépendances - DI
-================================================================================
-
-- Généralisation du concept d'Inversion de Contrôle
-- Injection des dépendances lors de l'instanciation des objets
-- Configuration des dépendances
-
-- Voir di.java
-
-Loi de Demeter / Principe de connaissance minimale
-================================================================================
-
-- Ne parlez qu'à vos amis immédiats
-- => Diminution du couplage entre composants
-- http://en.wikipedia.org/wiki/Law_of_Demeter
-
-Transparence référentielle
-================================================================================
-
-- Respecter la définition mathématique d'une fonction
-- On peut remplacer l'appel d'une fonction par son résultat
-- Ainsi, on peut vraiment tester en isolation
-
-En conclusion, quelques bonnes pratiques
+Quelques bonnes pratiques
 ================================================================================
 
 - Écrire des tests courts
@@ -821,10 +834,12 @@ En conclusion, quelques bonnes pratiques
 
 Quelques frameworks d'écriture de tests unitaires :
 
-- Java : JUnit 
-- PHP : PhpUnit
+- Java : JUnit
+- PHP : PhpUnit, Atoum (BDD)
 - Ruby : Test::Unit (Unitaire) / Rspecs (BDD)
 - Python : PyUnit
+- Javascript : Jasmine
+- Haskell : Quickcheck
 - …
 
 Deux liens utiles :
