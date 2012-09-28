@@ -236,6 +236,9 @@ Les systèmes décentralisés - Ajouts (1)
 Une étape supplémentaire : le push. Le commit (ainsi que quasiment tout le
 reste) est désormais local.
 
+Les systèmes décentralisés - Ajouts (1)
+================================================================================
+
 .. image:: git-workflow.png
    :width: 50%
 
@@ -413,6 +416,7 @@ Besoins
 ================================================================================
 
 Le système de gestion de versions
+
 - Rendre les opérations reproductibles
 - Automatiser les taches
 - (éventuellement) brancher des traitements additionnels
@@ -612,6 +616,9 @@ Concrètement, que se passe-t-il ?
 La phase ``mvn compile`` est lancée (dépendance préalable à l'exécution des tests.
 On ne pourrait pas tester des codes qui ne compilent pas...)
 
+Maven - Quelques cas d'utilisation... (2)
+================================================================================
+
 Les dépendances sur les tests sont résolues
 
 Les tests sont compilés.
@@ -632,6 +639,9 @@ Maven - Quelques cas d'utilisation... (3)
 
 D'abord le goal **clean** : tous les fichiers générés qui ne sont pas des sources sont
 supprimés. Ici, le paradigme *Convention over Configuration* est essentiel !
+
+Maven - Quelques cas d'utilisation... (3)
+================================================================================
 
 Puis le goal **install** :
 
@@ -804,6 +814,9 @@ TDD - Test Driven Development : écrire les tests avant le code.
 
 - Formalisation des spécifications
 - Assurance de la couverture du code 
+
+Écrire les spécifications en premier
+================================================================================
 
 BDD - Behaviour Driven Development : écrire les spécifications sous forme de
 tests.
