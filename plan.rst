@@ -143,20 +143,35 @@ Depuis quand est-il en place ?
 
 - Analyse de l'évolution du code
 - Association des modifications avec des développeurs
+- Savoir exactement à partir de quand un bug a été introduit dans la base de
+  code. Cela permet, par exemple, de savoir exactement quelles versions d'un
+  logiciel sont affectées par une faille de sécurité.
+
+3 - L'historique et les suppressions accidentelles
+================================================================================
+
+L'historique permet de se mettre à l'abri des suppressions accidentelles des
+fichiers qu'il contient. En cas de suppression accidentelle, on peut :
+
+- Retrouver la dernière version du fichier dans l'historique
+- Rétablir le fichier supprimé à partir de cette version.
+
+Les modifications non publiées sont perdues.
+
+Cette fonctionnalité justifie, à elle seule, le versionnement.
+
 
 4 - Permettre les divergences et convergences des codes
 ================================================================================
 
-Soit une équipe, travaillant sur une bibliothèque dont un algorithme
-*pourrait* être bloquant...
+Dans un logiciel, on trouve parfois plusieurs briques. Plusieurs personnes
+peuvent être amenées à modifier des fonctions différentes.
 
-Travail long et fastidieux.
-
-Travail sur la base de codes commune -> Blocage pour tout l'équipe (il va y
-avoir de la casse temporaire)
-
-Travail dans son coin, modification en une seule fois dans la base de codes ->
-Modification incompréhensible...
+- Interventions parfois longues
+- Travail sur la base de codes commune -> Blocage pour tout l'équipe (il va y
+  avoir de la casse temporaire)
+- Travail dans son coin, modification en une seule fois dans la base de codes ->
+  Modification incompréhensible...
 
 4 - S : Permettre le suivi des codes qui divergent, simplifier les convergences
 ================================================================================
@@ -220,7 +235,7 @@ Les systèmes centralisés - limites
 Les systèmes décentralisés
 ================================================================================
 
-Git, Mercurial, Bazaar, Darcs (<3)
+Git, Mercurial, Bazaar, Darcs
 
 Pas forcément de dépôt central.
 
@@ -290,14 +305,28 @@ Et aussi dans git...- Ajouts supplémentaires
 - stash
 - …
 
+Malgré tout, quelques avantages des systèmes centralisés
+================================================================================
+
+Malgré leurs fonctionnalités souvent plus limités, les systèmes de versionnement
+centralisés présentent quelques avantages :
+
+- La mise en commun est directe - il n'y a qu'un seul point d'entrée.
+- L'ancienneté est un atout : beaucoup de solutions reposent nativement sur les
+  systèmes centralisés ou proposent des clients permettant de s'y connecter.
+- Les fonctions plus simples sont plus faciles à apprendre...
+
+Dans tous les cas, il vaut mieux un système de versionnement que pas de
+versionnement du tout.
+
 Quelques bonnes pratiques de versionnement
 ================================================================================
 
 Les fichiers à ne **jamais** commiter/pusher : 
 
-- Les fichiers compilés (Les *.class* en Java, les *.o* en C...
+- Les fichiers compilés (Les *.class* en Java, les *.o* en C...)
 - Les fichiers de configuration inutiles pour le projet (Au hasard les fichiers
-  de configuration d'Eclipse)
+  de configuration d'Eclipse, Netbeans ou autre...)
 
 -> Utilisez les marqueurs à disposition (svn:ignore, .gitignore...) pour éviter
 de commiter n'importe quoi.
@@ -364,6 +393,8 @@ Pratiquer la *revue de code*
 La revue de code
 ================================================================================
 
+On peut procéder de plusieurs façons :
+
 - Commit par commit
 - Avant intégration du code (branches)
 - En direct (pair programming)
@@ -389,15 +420,32 @@ Marche aussi si chaque développeur a son dépôt.
 
 Facilité dans github grâce aux *pull requests*
 
+Le principe des pull requests
+================================================================================
+
+Chaque développeur dispose de son espace de travail. Il peut modifier les codes
+indépendamment du reste de l'équipe. Quand les développements sont prêts :
+
+- Demande d'intégration des modifications dans la base de codes. C'est la
+  *pull request*
+- Validation (ou non) par l'équipe de développement
+- En cas de validation : intégration des codes dans la base de codes.
+
+Les pull requests au coeur des systèmes de versionnement centralisés
+================================================================================
+
+.. image:: git-workflow.png
+   :width: 50%
+
 En direct - Pair programming
 ================================================================================
 
 Un poste de travail pour deux. Un développeur code, l'autre commente / guide /
 pointe les erreurs.
 
-Gain de productivité appréciable (idéalement supérieur à un facteur 2).
-
-Au cœur de l'extreme programming (XP)
+- Gain de productivité appréciable (idéalement supérieur à un facteur 2).
+- Permet de faire prendre en main cocnrètement une technologie
+- Au coeur de l'extreme programming (XP)
 
 
 Builds automatisés
