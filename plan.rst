@@ -458,7 +458,7 @@ Logiciels écrits en équipe.
 
 Phase de compilation / assemblage pas toujours évidente (dépendances, …)
 
-Opérations **très** répétitives.
+Opérations **très** répétitives et chronophages si elles sont faites à la main.
 
 Besoins
 ================================================================================
@@ -492,8 +492,9 @@ Mais
 
 Dans les faits :
 
-- make généré automatiquement
+- Makefile généré automatiquement
 - dépendances gérées par le système d'exploitation
+- dépendances vérifiées durant la phase de configuration
 
 ::
 
@@ -504,7 +505,7 @@ Dans les faits :
 Ant
 ================================================================================
 
-Très répandu dans le monde java.
+Très répandu dans le monde Java.
 Scripts écrits sous forme de XML
 
 Mais
@@ -541,34 +542,19 @@ Contenu du POM :
 - relations de parenté entre modules
 - configuration des modules maven
 
-  - Version de Java utilisée pour la compilation (Java 1.6 si possible)
+  - Version de Java utilisée pour la compilation
   - Module de création d'exécutables (jar)
   - Génération de documentation
 
 
-Maven - les dépendances transitives
+Maven - les dépendances
 ================================================================================
 
+Maven est capable de gérer les dépendances d'une bibliothèques.
 
-.. image:: heritage.png
-        :width: 100%
-
-Maven - Dépendances
-================================================================================
-
-::
-
-    <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>3.8.1</version>
-        <scope>test</scope>
-    </dependency>
-
-- Dépendance à junit
-- junit.junit - version 3.8.1
-- nécessaire seulement pendant la phase de test
-
+- Gestion des dépendances directes
+- Gestion des dépendances indirectes (dépendances de dépendances
+- Gestion des dépendances par phase de construction
 
 Maven - Repositories
 ================================================================================
@@ -635,20 +621,14 @@ Maven - Quelques cas d'utilisation... (1)
 
   mvn compile
 
-Cette commande lance la phase de **compilation** : toutes les sources sont compilées,
-après résolution des dépendances.
+C'est la phase de **compilation** : toutes les sources sont compilées,
+après résolution des dépendances. Concrètement :
 
-Concrètement, que se passe-t-il ?
-
-Les dépendances sont résolues.
-
-- Maven vérifie que toutes les dépendances (utilisées...) sont présentes localement.
-- Si certaines sont manquantes -> Tentative de rapatriement depuis un des dépôts déclarés.
+- Les dépendances sont résolues.
+- Maven réunit les dépendances, éventuellement en interrogeant des serveurs distants
 - En cas d'échec -> erreur de compilation... ;-)
-
-Le *classpath* du compilateur Java est alimenté comme il se doit.
-
-Les fichiers **.class** sont générés.
+- Le *classpath* du compilateur Java est alimenté comme il se doit.
+- Les fichiers **.class** sont générés.
 
 Maven - Quelques cas d'utilisation... (2)
 ================================================================================
@@ -685,8 +665,9 @@ Maven - Quelques cas d'utilisation... (3)
 
 **Attention !** On a cette fois deux *goals* à exécuter !
 
-D'abord le goal **clean** : tous les fichiers générés qui ne sont pas des sources sont
-supprimés. Ici, le paradigme *Convention over Configuration* est essentiel !
+D'abord le goal **clean** : tous les fichiers générés qui ne sont pas des
+sources sont supprimés. Ici, le paradigme *Convention over Configuration* est
+essentiel !
 
 Maven - Quelques cas d'utilisation... (3)
 ================================================================================
@@ -699,10 +680,23 @@ Le goal **test** est exécuté.
 
 Le goal **package** est exécuté -> création d'un jar.
 
-Le goal **install** est exécuté -> installation de l'archive dans un dépôt local. La bibliothèque
-ainsi produite devient utilisable localement par tous les autres projet Maven !
+Le goal **install** est exécuté -> installation de l'archive dans un dépôt
+local. La bibliothèque ainsi produite devient utilisable localement par tous
+les autres projet Maven !
 
-Et encore d'autres...
+Toujours plus de fonctionnalités
+================================================================================
+
+Les fonctionnalités de maven peuvent être étendues par le biais de plugin.
+Toute tâche sur le code qui est automatisable peut être réalisée par le biais
+d'un plugin :
+
+- Génération d'exécutables multi-plateformes
+- Génération d'un zip contenant les sources
+- Génération de la documentation développeur
+- Déploiement de fichiers sur une machine distante
+
+Et encore d'autres outils de builds...
 ================================================================================
 
 D'autres outils de build existent, ne serait-ce que dans le monde de la JVM.
