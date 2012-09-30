@@ -725,39 +725,10 @@ Les tests sont exécutés sur les codes.
 
 **On a réalisé, en une seule commande, quatre opérations non atomiques !**
 
-
-Maven - Quelques cas d'utilisation... (3)
-================================================================================
-
-::
-
-  mvn clean install
-
-**Attention !** On a cette fois deux *goals* à exécuter !
-
-D'abord le goal **clean** : tous les fichiers générés qui ne sont pas des
-sources sont supprimés. Ici, le paradigme *Convention over Configuration* est
-essentiel !
-
-Maven - Quelques cas d'utilisation... (3)
-================================================================================
-
-Puis le goal **install** :
-
-Le goal **compile** est exécuté.
-
-Le goal **test** est exécuté.
-
-Le goal **package** est exécuté -> création d'un jar.
-
-Le goal **install** est exécuté -> installation de l'archive dans un dépôt
-local. La bibliothèque ainsi produite devient utilisable localement par tous
-les autres projet Maven !
-
 Toujours plus de fonctionnalités
 ================================================================================
 
-Les fonctionnalités de maven peuvent être étendues par le biais de plugin.
+Les fonctionnalités de maven peuvent être étendues par le biais de plugins.
 Toute tâche sur le code qui est automatisable peut être réalisée par le biais
 d'un plugin :
 
