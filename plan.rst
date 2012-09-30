@@ -311,10 +311,21 @@ Malgré tout, quelques avantages des systèmes centralisés
 Malgré leurs fonctionnalités souvent plus limités, les systèmes de versionnement
 centralisés présentent quelques avantages :
 
+- La centralisation rassure les managers
 - La mise en commun est directe - il n'y a qu'un seul point d'entrée.
 - L'ancienneté est un atout : beaucoup de solutions reposent nativement sur les
   systèmes centralisés ou proposent des clients permettant de s'y connecter.
-- Les fonctions plus simples sont plus faciles à apprendre...
+- Souvent besoin de plus d'étapes pour faire la même chose.
+
+Malgré tout, quelques avantages des systèmes centralisés (2)
+================================================================================
+
+- Moins de concepts à apprendre. Il faut savoir commiter, mettre le dépôt local
+  à jour, éventuellement savoir déplacer des dossiers, et c'est à peu près tout.
+- Plus de liberté dans les systèmes décentralisés -> plus de risques. Il est
+  plus compliqué de tricher sur l'historique dans Subversion que dans Git. A
+  contrario, il est aussi presque impossible de corriger une erreur dans
+  l'historique de SVN. Attention aux "mensonges" dans l'historique
 
 Dans tous les cas, il vaut mieux un système de versionnement que pas de
 versionnement du tout.
@@ -366,6 +377,21 @@ http://book.git-scm.com/
 Pour Mercurial :
 
 http://hgbook.red-bean.com/
+
+Quelques ressources
+================================================================================
+
+Pour Darcs :
+
+http://en.wikibooks.org/wiki/Understanding_Darcs
+
+"10 things I hate about Git"
+
+https://steveko.wordpress.com/2012/02/24/10-things-i-hate-about-git/
+
+Un peu d'ironie :
+
+http://blog.cedarsoft.com/2010/01/top-10-why-subversion-is-better-than-git/
 
 Ce document est versionné sous git :
 
