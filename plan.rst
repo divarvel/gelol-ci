@@ -363,46 +363,6 @@ Quelques bonnes pratiques de versionnement - git
   s'apprête à commiter
 - …
 
-Systèmes décentralisés et gouvernance de projets libres
-================================================================================
-
-Parmi les limites des systèmes centralisés, une en particulier pose un
-problème majeur pour les logiciels open-source : tout le monde n'a pas
-le droit de commiter dans le système de versionnement.
-
-Cette limite disparaît dans les systèmes décentralisés :
-
-- Fork dans un dépôt local
-- Modifications, commits
-- "Pull request"
-
-On peut également la faire disparaître à l'aide de liens entre un système
-centralisé et un système décentralisé (git-svn, hgsubversion...), mais ça
-provoque d'autres problèmes...
-
-Le principe des pull requests
-================================================================================
-
-Chaque développeur dispose de son espace de travail. Il peut modifier les codes
-indépendamment du reste de l'équipe. Quand les développements sont prêts :
-
-- Demande d'intégration des modifications dans la base de codes. C'est la
-  *pull request*
-- Validation (ou non) par l'équipe de développement
-- En cas de validation : intégration des codes dans la base de codes.
-
-Et si ma pull request est refusée par le projet ?
-================================================================================
-
-Dans le cas de projets libres, plusieurs solutions :
-
-- Intégrations de modifications demandées par l'équipe de développement, puis
-  nouvelle pull request
-- Maintenance d'un fork en parallèle du projet original.
-
-Dans le cas de systèmes centralisés, on reste bloqué à la communication de
-patches...
-
 Les pull requests au coeur des systèmes de versionnement centralisés
 ================================================================================
 
@@ -506,6 +466,17 @@ de la branche.
 Marche aussi si chaque développeur a son dépôt.
 
 Facilité dans github grâce aux *pull requests*
+
+Le principe des pull requests
+================================================================================
+
+Chaque développeur dispose de son espace de travail. Il peut modifier les codes
+indépendamment du reste de l'équipe. Quand les développements sont prêts :
+
+- Demande d'intégration des modifications dans la base de codes. C'est la
+  *pull request*
+- Validation (ou non) par l'équipe de développement
+- En cas de validation : intégration des codes dans la base de codes.
 
 En direct - Pair programming
 ================================================================================
