@@ -143,20 +143,35 @@ Depuis quand est-il en place ?
 
 - Analyse de l'évolution du code
 - Association des modifications avec des développeurs
+- Savoir exactement à partir de quand un bug a été introduit dans la base de
+  code. Cela permet, par exemple, de savoir exactement quelles versions d'un
+  logiciel sont affectées par une faille de sécurité.
+
+3 - L'historique et les suppressions accidentelles
+================================================================================
+
+L'historique permet de se mettre à l'abri des suppressions accidentelles des
+fichiers qu'il contient. En cas de suppression accidentelle, on peut :
+
+- Retrouver la dernière version du fichier dans l'historique
+- Rétablir le fichier supprimé à partir de cette version.
+
+Les modifications non publiées sont perdues.
+
+Cette fonctionnalité justifie, à elle seule, le versionnement.
+
 
 4 - Permettre les divergences et convergences des codes
 ================================================================================
 
-Soit une équipe, travaillant sur une bibliothèque dont un algorithme
-*pourrait* être bloquant...
+Dans un logiciel, on trouve parfois plusieurs briques. Plusieurs personnes
+peuvent être amenées à modifier des fonctions différentes.
 
-Travail long et fastidieux.
-
-Travail sur la base de codes commune -> Blocage pour tout l'équipe (il va y
-avoir de la casse temporaire)
-
-Travail dans son coin, modification en une seule fois dans la base de codes ->
-Modification incompréhensible...
+- Interventions parfois longues
+- Travail sur la base de codes commune -> Blocage pour tout l'équipe (il va y
+  avoir de la casse temporaire)
+- Travail dans son coin, modification en une seule fois dans la base de codes ->
+  Modification incompréhensible...
 
 4 - S : Permettre le suivi des codes qui divergent, simplifier les convergences
 ================================================================================
@@ -220,7 +235,7 @@ Les systèmes centralisés - limites
 Les systèmes décentralisés
 ================================================================================
 
-Git, Mercurial, Bazaar, Darcs (<3)
+Git, Mercurial, Bazaar, Darcs
 
 Pas forcément de dépôt central.
 
@@ -290,14 +305,41 @@ Et aussi dans git...- Ajouts supplémentaires
 - stash
 - …
 
+Malgré tout, quelques avantages des systèmes centralisés
+================================================================================
+
+Malgré leurs fonctionnalités souvent plus limités, les systèmes de versionnement
+centralisés présentent quelques avantages :
+
+- La centralisation rassure les managers
+- La mise en commun est directe - il n'y a qu'un seul point d'entrée.
+- L'ancienneté est un atout : beaucoup de solutions reposent nativement sur les
+  systèmes centralisés ou proposent des clients permettant de s'y connecter.
+- Souvent besoin de plus d'étapes pour faire la même chose.
+- Tous les projets sont au même endroit. Avec leurs branches, leurs tags...
+  Tout...
+
+Malgré tout, quelques avantages des systèmes centralisés (2)
+================================================================================
+
+- Moins de concepts à apprendre. Il faut savoir commiter, mettre le dépôt local
+  à jour, éventuellement savoir déplacer des dossiers, et c'est à peu près tout.
+- Plus de liberté dans les systèmes décentralisés -> plus de risques. Il est
+  plus compliqué de tricher sur l'historique dans Subversion que dans Git. A
+  contrario, il est aussi presque impossible de corriger une erreur dans
+  l'historique de SVN. Attention aux "mensonges" dans l'historique
+
+Dans tous les cas, il vaut mieux un système de versionnement que pas de
+versionnement du tout.
+
 Quelques bonnes pratiques de versionnement
 ================================================================================
 
 Les fichiers à ne **jamais** commiter/pusher : 
 
-- Les fichiers compilés (Les *.class* en Java, les *.o* en C...
+- Les fichiers compilés (Les *.class* en Java, les *.o* en C...)
 - Les fichiers de configuration inutiles pour le projet (Au hasard les fichiers
-  de configuration d'Eclipse)
+  de configuration d'Eclipse, Netbeans ou autre...)
 
 -> Utilisez les marqueurs à disposition (svn:ignore, .gitignore...) pour éviter
 de commiter n'importe quoi.
@@ -321,6 +363,65 @@ Quelques bonnes pratiques de versionnement - git
   s'apprête à commiter
 - …
 
+Systèmes décentralisés et gouvernance de projets libres
+================================================================================
+
+Parmi les limites des systèmes centralisés, une en particulier pose un
+problème majeur pour les logiciels open-source : tout le monde n'a pas
+le droit de commiter dans le système de versionnement.
+
+Cette limite disparaît dans les systèmes décentralisés :
+
+- Fork dans un dépôt local
+- Modifications, commits
+- "Pull request"
+
+On peut également la faire disparaître à l'aide de liens entre un système
+centralisé et un système décentralisé (git-svn, hgsubversion...), mais ça
+provoque d'autres problèmes...
+
+Le principe des pull requests
+================================================================================
+
+Chaque développeur dispose de son espace de travail. Il peut modifier les codes
+indépendamment du reste de l'équipe. Quand les développements sont prêts :
+
+- Demande d'intégration des modifications dans la base de codes. C'est la
+  *pull request*
+- Validation (ou non) par l'équipe de développement
+- En cas de validation : intégration des codes dans la base de codes.
+
+Et si ma pull request est refusée par le projet ?
+================================================================================
+
+Dans le cas de projets libres, plusieurs solutions :
+
+- Intégrations de modifications demandées par l'équipe de développement, puis
+  nouvelle pull request
+- Maintenance d'un fork en parallèle du projet original.
+
+Dans le cas de systèmes centralisés, on reste bloqué à la communication de
+patches...
+
+Les pull requests au coeur des systèmes de versionnement centralisés
+================================================================================
+
+.. image:: git-workflow.png
+   :width: 50%
+
+Quid d'une transition centralisé -> décentralisé ?
+================================================================================
+
+Les architectures existantes sont souvent un frein à l'adoption des systèmes
+décentralisés.
+
+*Je vois bien l'intérêt de Git, mais nous utilisons Subversion, c'est trop
+compliqué de migrer...*
+
+Des outils existent qui permettent de faire la migration. Cela permet même
+de corriger des accidents qui ont pu survenir dans l'historique... Attention,
+la transition est parfois douloureuse pour une partie de l'équipe, au début...
+
 Quelques ressources
 ================================================================================
 
@@ -337,6 +438,21 @@ http://book.git-scm.com/
 Pour Mercurial :
 
 http://hgbook.red-bean.com/
+
+Quelques ressources
+================================================================================
+
+Pour Darcs :
+
+http://en.wikibooks.org/wiki/Understanding_Darcs
+
+"10 things I hate about Git"
+
+https://steveko.wordpress.com/2012/02/24/10-things-i-hate-about-git/
+
+Un peu d'ironie :
+
+http://blog.cedarsoft.com/2010/01/top-10-why-subversion-is-better-than-git/
 
 Ce document est versionné sous git :
 
@@ -363,6 +479,8 @@ Pratiquer la *revue de code*
 
 La revue de code
 ================================================================================
+
+On peut procéder de plusieurs façons :
 
 - Commit par commit
 - Avant intégration du code (branches)
@@ -395,9 +513,9 @@ En direct - Pair programming
 Un poste de travail pour deux. Un développeur code, l'autre commente / guide /
 pointe les erreurs.
 
-Gain de productivité appréciable (idéalement supérieur à un facteur 2).
-
-Au cœur de l'extreme programming (XP)
+- Gain de productivité appréciable (idéalement supérieur à un facteur 2).
+- Permet de faire prendre en main cocnrètement une technologie
+- Au coeur de l'extreme programming (XP)
 
 
 Builds automatisés
@@ -410,7 +528,7 @@ Logiciels écrits en équipe.
 
 Phase de compilation / assemblage pas toujours évidente (dépendances, …)
 
-Opérations **très** répétitives.
+Opérations **très** répétitives et chronophages si elles sont faites à la main.
 
 Besoins
 ================================================================================
@@ -444,8 +562,9 @@ Mais
 
 Dans les faits :
 
-- make généré automatiquement
+- Makefile généré automatiquement
 - dépendances gérées par le système d'exploitation
+- dépendances vérifiées durant la phase de configuration
 
 ::
 
@@ -456,7 +575,7 @@ Dans les faits :
 Ant
 ================================================================================
 
-Très répandu dans le monde java.
+Très répandu dans le monde Java.
 Scripts écrits sous forme de XML
 
 Mais
@@ -493,34 +612,19 @@ Contenu du POM :
 - relations de parenté entre modules
 - configuration des modules maven
 
-  - Version de Java utilisée pour la compilation (Java 1.6 si possible)
+  - Version de Java utilisée pour la compilation
   - Module de création d'exécutables (jar)
   - Génération de documentation
 
 
-Maven - les dépendances transitives
+Maven - les dépendances
 ================================================================================
 
+Maven est capable de gérer les dépendances d'une bibliothèques.
 
-.. image:: heritage.png
-        :width: 100%
-
-Maven - Dépendances
-================================================================================
-
-::
-
-    <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>3.8.1</version>
-        <scope>test</scope>
-    </dependency>
-
-- Dépendance à junit
-- junit.junit - version 3.8.1
-- nécessaire seulement pendant la phase de test
-
+- Gestion des dépendances directes
+- Gestion des dépendances indirectes (dépendances de dépendances
+- Gestion des dépendances par phase de construction
 
 Maven - Repositories
 ================================================================================
@@ -587,20 +691,14 @@ Maven - Quelques cas d'utilisation... (1)
 
   mvn compile
 
-Cette commande lance la phase de **compilation** : toutes les sources sont compilées,
-après résolution des dépendances.
+C'est la phase de **compilation** : toutes les sources sont compilées,
+après résolution des dépendances. Concrètement :
 
-Concrètement, que se passe-t-il ?
-
-Les dépendances sont résolues.
-
-- Maven vérifie que toutes les dépendances (utilisées...) sont présentes localement.
-- Si certaines sont manquantes -> Tentative de rapatriement depuis un des dépôts déclarés.
+- Les dépendances sont résolues.
+- Maven réunit les dépendances, éventuellement en interrogeant des serveurs distants
 - En cas d'échec -> erreur de compilation... ;-)
-
-Le *classpath* du compilateur Java est alimenté comme il se doit.
-
-Les fichiers **.class** sont générés.
+- Le *classpath* du compilateur Java est alimenté comme il se doit.
+- Les fichiers **.class** sont générés.
 
 Maven - Quelques cas d'utilisation... (2)
 ================================================================================
@@ -637,8 +735,9 @@ Maven - Quelques cas d'utilisation... (3)
 
 **Attention !** On a cette fois deux *goals* à exécuter !
 
-D'abord le goal **clean** : tous les fichiers générés qui ne sont pas des sources sont
-supprimés. Ici, le paradigme *Convention over Configuration* est essentiel !
+D'abord le goal **clean** : tous les fichiers générés qui ne sont pas des
+sources sont supprimés. Ici, le paradigme *Convention over Configuration* est
+essentiel !
 
 Maven - Quelques cas d'utilisation... (3)
 ================================================================================
@@ -651,10 +750,23 @@ Le goal **test** est exécuté.
 
 Le goal **package** est exécuté -> création d'un jar.
 
-Le goal **install** est exécuté -> installation de l'archive dans un dépôt local. La bibliothèque
-ainsi produite devient utilisable localement par tous les autres projet Maven !
+Le goal **install** est exécuté -> installation de l'archive dans un dépôt
+local. La bibliothèque ainsi produite devient utilisable localement par tous
+les autres projet Maven !
 
-Et encore d'autres...
+Toujours plus de fonctionnalités
+================================================================================
+
+Les fonctionnalités de maven peuvent être étendues par le biais de plugin.
+Toute tâche sur le code qui est automatisable peut être réalisée par le biais
+d'un plugin :
+
+- Génération d'exécutables multi-plateformes
+- Génération d'un zip contenant les sources
+- Génération de la documentation développeur
+- Déploiement de fichiers sur une machine distante
+
+Et encore d'autres outils de builds...
 ================================================================================
 
 D'autres outils de build existent, ne serait-ce que dans le monde de la JVM.
