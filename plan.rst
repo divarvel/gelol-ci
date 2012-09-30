@@ -316,6 +316,8 @@ centralisés présentent quelques avantages :
 - L'ancienneté est un atout : beaucoup de solutions reposent nativement sur les
   systèmes centralisés ou proposent des clients permettant de s'y connecter.
 - Souvent besoin de plus d'étapes pour faire la même chose.
+- Tous les projets sont au même endroit. Avec leurs branches, leurs tags...
+  Tout...
 
 Malgré tout, quelques avantages des systèmes centralisés (2)
 ================================================================================
@@ -406,6 +408,19 @@ Les pull requests au coeur des systèmes de versionnement centralisés
 
 .. image:: git-workflow.png
    :width: 50%
+
+Quid d'une transition centralisé -> décentralisé ?
+================================================================================
+
+Les architectures existantes sont souvent un frein à l'adoption des systèmes
+décentralisés.
+
+*Je vois bien l'intérêt de Git, mais nous utilisons Subversion, c'est trop
+compliqué de migrer...*
+
+Des outils existent qui permettent de faire la migration. Cela permet même
+de corriger des accidents qui ont pu survenir dans l'historique... Attention,
+la transition est parfois douloureuse pour une partie de l'équipe, au début...
 
 Quelques ressources
 ================================================================================
