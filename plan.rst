@@ -316,8 +316,6 @@ centralisés présentent quelques avantages :
 - L'ancienneté est un atout : beaucoup de solutions reposent nativement sur les
   systèmes centralisés ou proposent des clients permettant de s'y connecter.
 - Souvent besoin de plus d'étapes pour faire la même chose.
-- Tous les projets sont au même endroit. Avec leurs branches, leurs tags...
-  Tout...
 
 Malgré tout, quelques avantages des systèmes centralisés (2)
 ================================================================================
