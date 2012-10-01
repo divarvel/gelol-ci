@@ -717,6 +717,9 @@ Gradle :
 - Utilisation de Groovy pour décrire les phases de build.
 - Compatible Maven.
 
+Et encore d'autres outils de builds...
+================================================================================
+
 SBT :
 
 - Grande souplesse dans la gestion des dépendances
