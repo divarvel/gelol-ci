@@ -523,7 +523,7 @@ Fonctionne sur le principe de **cibles**.
 Make
 ================================================================================
 
-Mais
+Mais :
 
 - pas de gestion des dépendances
 - beaucoup de code à écrire
@@ -534,6 +534,11 @@ Dans les faits :
 - Makefile généré automatiquement
 - dépendances gérées par le système d'exploitation
 - dépendances vérifiées durant la phase de configuration
+
+Make
+================================================================================
+
+On retrouve le "classique" enchaînement :
 
 ::
 
@@ -726,6 +731,15 @@ SBT :
 - Écrit en scala
 - Fichiers de configuration très concis
 - Compatible Maven.
+
+Et pas seulement pour Java
+================================================================================
+
+Il n'y a bien sûr pas que Java...
+
+- NAnt
+- MSBuild
+- ...
 
 Quelques ressources (1)
 ================================================================================
