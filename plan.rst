@@ -894,7 +894,6 @@ Les tests :
 
 - sont écrits de manière intelligible
 - décrivent simplement le comportement de chaque élément
-
 - voir specs.scala
 
 Écrire du code testable
