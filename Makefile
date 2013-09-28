@@ -64,18 +64,11 @@ heritage.png: inheritance.gv
 
 clean:
 	@echo "Nettoyage des fichiers temporaires"
-	@rm slides.tex
-	@rm slides.aux
-	@rm slides.log
-	@rm slides.nav
-	@rm slides.out
-	@rm slides.snm
-	@rm slides.toc
-	@rm slides.vrb
-	@rm heritage.png
+	-@rm slides.{tex,aux,log,nav,out,snm,toc,vrb}
+	-@rm heritage.png
 
 mrproper: clean
 	@echo "Suppression du fichier PDF"
-	@rm slides.pdf
+	-@rm slides.pdf
 
 
