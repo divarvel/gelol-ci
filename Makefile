@@ -5,13 +5,13 @@ pandoctex: plan.rst heritage.png
 	@pandoc -f rst -t beamer -o slides.tex --template default.beamer\
 		-V lang:french\
 		-V colortheme:seahorse\
-		-V date:"1er octobre 2012"\
+		-V date:"30 septembre 2013"\
 		plan.rst
 html: plan.rst heritage.png
 	@pandoc \
 		-f rst -t dzslides -o slides.html --template default.dzslides\
 		-V lang:french\
-		-V date:"1er octobre 2012"\
+		-V date:"30 septembre 2013"\
 		-V author:"Clément Delafargue, Alexis Guéganno"\
 		plan.rst
 
