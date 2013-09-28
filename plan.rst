@@ -882,17 +882,21 @@ Quid de la présence d'un bug dans les tests ?
 Tests de propriétés
 ================================================================================
 
+Si le développeur oublie de traiter un cas dans son algoritme, pourquoi y
+penserait-il lors des tests ?
+
 Plutôt que de tester un ensemble de couples ``entrée -> sortie`` définis à
 l'avance, on définit une liste de propriétés (relations entre ``entrée`` et
 ``sortie``) que doivent respecter tous les couples ``entrée -> sortie``.
 
-Le framework de tests génère le cas de tests tout seul.
+- voir quicktest.lhs
+- voir NonEmptyListTest.scala
+
+Le framework de tests génère les cas de tests tout seul.
 
 - Plus grande couverture
 - Couvre des cas auxquels le développeur n'a pas forcément réfléchi
 - Toujours pas exhaustif
-
-- voir scalacheck.scala
 
 Écrire les tests en premier
 ================================================================================
