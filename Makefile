@@ -1,6 +1,6 @@
 all: html clean
 
-pandoctex: plan.rst heritage.png
+slides.tex: plan.rst heritage.png
 	@echo "Génération du fichier tex"
 	@pandoc -f rst -t beamer -o slides.tex --template default.beamer\
 		-V lang:french\
@@ -25,7 +25,7 @@ handouttex: slides.tex
 
 handout: handouttex pdf
 
-slides.tex: plan.rst
+uglytex: plan.rst
 	@echo "Génération du fichier tex"
 	@rst2beamer --title="GELOL" \
 		--language="fr" \
