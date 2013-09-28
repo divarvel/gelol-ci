@@ -1184,6 +1184,21 @@ Pour des infos sur le logiciel :
 
 **Jenkins, the definitive guide**
 
+Très complet, très complexe.
+
+Offres SaaS
+================================================================================
+
+- Travis
+- Drone.io
+
+Simple à mettre en place (un fichier de conf à ajouter au projet).
+
+Intégration immédiate à github (pull requests, hooks, …).
+
+Gratuit pour les projets open source
+
+
 Continuous delivery / deployment
 ********************************************************************************
 
