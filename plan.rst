@@ -923,7 +923,7 @@ Quelques frameworks d'écriture de tests unitaires :
 - Ruby : Test::Unit (Unitaire) / Rspecs (BDD)
 - Python : PyUnit
 - Javascript : Jasmine
-- Haskell : Quickcheck
+- Haskell : HUnit
 - …
 
 Deux liens utiles :
