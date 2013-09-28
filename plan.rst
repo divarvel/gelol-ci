@@ -739,6 +739,9 @@ Il n'y a bien sûr pas que Java...
 
 - NAnt
 - MSBuild
+- npm pour node.js
+- pip pour Python
+- composer pour PHP
 - ...
 
 Quelques ressources (1)
