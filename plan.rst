@@ -525,7 +525,7 @@ Make
 
 Mais :
 
-- pas de gestion des dépendances
+- pas de gestion des dépendances (bibliothèques)
 - beaucoup de code à écrire
 - dépend du système
 
