@@ -1226,8 +1226,45 @@ Les bénéfices sont multiples :
 Cadres propices
 ================================================================================
 
-SaaS - Software as a Service
+Pour les offres SaaS - Software as a Service
 
 - Environnement d'exécution contrôlé
 - Changement accepté par les utilisateurs
 
+Plateforme de déploiement
+================================================================================
+
+PaaS : Platform as a Service
+
+But : industrialiser l'environnement de production
+
+Déploiement, monitoring et montée en charge automatisés, paiement à la
+consommation.
+
+S'intègre parfaitement avec une toolchain d'intégration continue (build
+automatisé, déploiement via git).
+
+Exemples : Clever-Cloud, Heroku, NodeJitsu
+
+Une offre PaaS : Clever-Cloud
+================================================================================
+
+- Déploiement via git
+- Exploite vos outils de build (gestion des dépendances, compilation
+  automatisée)
+- Monitoring automatisé
+- Montée en charge automatisée
+- Paiement à la consommation
+
+
+L'intégration continue dans le cloud
+================================================================================
+
+Pipeline complètement automatisé, *très simple* à mettre en place,
+
+basé sur des *outils standard* et des *bonnes pratiques* (git, framework de
+tests, outils de build)
+
+- Gestion du code avec Github ou Bitbucket
+- Intégration continue avec Travis ou Drone.io
+- Déploiement sur Clever-Cloud, Heroku, NodeJitsu…
