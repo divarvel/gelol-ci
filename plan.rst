@@ -938,7 +938,7 @@ Quelques bonnes pratiques
 Quelques frameworks d'écriture de tests unitaires :
 
 - Java : JUnit
-- PHP : PhpUnit, Atoum (BDD)
+- PHP : PHPUnit, Atoum / Behat (BDD)
 - Ruby : Test::Unit (Unitaire) / Rspecs (BDD)
 - Python : PyUnit
 - Javascript : Jasmine
