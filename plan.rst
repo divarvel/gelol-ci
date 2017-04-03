@@ -400,9 +400,9 @@ Quelques bonnes pratiques de versionnement - git
 Systèmes décentralisés et gouvernance de projets libres
 ================================================================================
 
-Parmi les limites des systèmes centralisés, une en particulier pose un
+Une limite en particulier pose un
 problème majeur pour les logiciels open-source : tout le monde n'a pas
-le droit de commiter dans le système de versionnement.
+le droit de commiter dans le projet…
 
 Cette limite disparaît dans les systèmes décentralisés :
 
@@ -410,9 +410,8 @@ Cette limite disparaît dans les systèmes décentralisés :
 - Modifications, commits
 - "Pull request"
 
-On peut également la faire disparaître à l'aide de liens entre un système
-centralisé et un système décentralisé (git-svn, hgsubversion...), mais ça
-provoque d'autres problèmes...
+On peut aussi utiliser une passerelle vers un système décentralisé (git-svn,
+hgsubversion…), mais ça provoque d'autres problèmes…
 
 Le principe des pull requests
 ================================================================================
@@ -459,38 +458,29 @@ la transition est parfois douloureuse pour une partie de l'équipe, au début...
 Quelques ressources
 ================================================================================
 
-Pour SVN :
-
-http://svnbook.red-bean.com/
+Pour SVN : http://svnbook.red-bean.com/
 http://stackoverflow.com/questions/871/why-is-git-better-than-subversion
 
-Pour git :
-
-http://whygitisbetterthanx.com/
+Pour git : http://whygitisbetterthanx.com/
 http://book.git-scm.com/
 
-Pour Mercurial :
-
-http://hgbook.red-bean.com/
+Pour Mercurial : http://hgbook.red-bean.com/
 
 Quelques ressources
 ================================================================================
 
-Pour Darcs :
-
+Pour Darcs : 
 http://en.wikibooks.org/wiki/Understanding_Darcs
 
-"10 things I hate about Git"
-
+"10 things I hate about Git" 
 https://steveko.wordpress.com/2012/02/24/10-things-i-hate-about-git/
 
 Un peu d'ironie :
-
 http://blog.cedarsoft.com/2010/01/top-10-why-subversion-is-better-than-git/
 
 Ce document est versionné sous git :
 
-*git clone https://github.com/divarvel/gelol-ci.git*
+git clone https://github.com/agueganno/gelol-ci.git
 
 Revue de code
 ********************************************************************************
@@ -1085,10 +1075,16 @@ Les métriques et la dette technique
 
 Comment expliquer simplement les problèmes mis en lumière par ces métriques ?
 
+Les métriques et la dette technique
+================================================================================
+
 → En parlant de **dette technique**
 
 **La dette technique représente des parties de code non utilisées ou dans 
 lesquelles il est difficile d'effectuer des modifications et évolutions.**
+
+Les métriques et la dette technique
+================================================================================
 
 En **chiffrant** les problèmes recensés :
 

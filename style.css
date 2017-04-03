@@ -1,8 +1,27 @@
 <style>
 h1,
 section.titleslide h1 {
-  font-size: 28px;
+  margin-top: 50px;
+  font-size: 38px;
   color: #98c122;
   font-family: "roboto";
+}
+
+p {
+  margin: 30px;
+  font-size: 26px;
+}
+
+ul {
+  margin: 50px 60px;
+}
+
+pre {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+li {
+  font-size: 22px;
 }
 </style>
