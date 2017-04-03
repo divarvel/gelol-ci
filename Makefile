@@ -1,11 +1,11 @@
 all: html clean
 
-pandoctex: plan.rst heritage.png
+slides.tex: plan.rst heritage.png
 	@echo "Génération du fichier tex"
 	@pandoc -f rst -t beamer -o slides.tex --template default.beamer\
 		-V lang:french\
 		-V colortheme:seahorse\
-		-V date:"1er octobre 2012"\
+		-V date:"30 septembre 2013"\
 		plan.rst
 html: plan.rst heritage.png
 	@pandoc \
@@ -26,7 +26,7 @@ handouttex: slides.tex
 
 handout: handouttex pdf
 
-slides.tex: plan.rst
+uglytex: plan.rst
 	@echo "Génération du fichier tex"
 	@rst2beamer --title="GELOL" \
 		--language="fr" \
@@ -65,18 +65,11 @@ heritage.png: inheritance.gv
 
 clean:
 	@echo "Nettoyage des fichiers temporaires"
-	@rm slides.tex
-	@rm slides.aux
-	@rm slides.log
-	@rm slides.nav
-	@rm slides.out
-	@rm slides.snm
-	@rm slides.toc
-	@rm slides.vrb
-	@rm heritage.png
+	-@rm slides.{tex,aux,log,nav,out,snm,toc,vrb}
+	-@rm heritage.png
 
 mrproper: clean
 	@echo "Suppression du fichier PDF"
-	@rm slides.pdf
+	-@rm slides.pdf
 
 

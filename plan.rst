@@ -335,8 +335,6 @@ centralisés présentent quelques avantages :
 - Beaucoup de solutions reposent nativement sur les
   systèmes centralisés ou permetetnt de les utiliser
 - Souvent besoin de plus d'étapes pour faire la même chose.
-- Tous les projets sont au même endroit. Avec leurs branches, leurs tags...
-  Tout...
 
 Malgré tout, quelques avantages des systèmes centralisés (2)
 ================================================================================
@@ -367,7 +365,7 @@ de commiter n'importe quoi.
 Quelques bonnes pratiques de versionnement
 ================================================================================
 
-- Ne *jamais* commiter en aveugle
+- Ne **jamais** commiter en aveugle
 - Commiter souvent pour rendre les commits aussi lisibles que possibles.
 - Ne pas oublier que certains outils doivent être utilisés avec parcimonie (git
   rebase, par exemple)
@@ -482,6 +480,7 @@ Ce document est versionné sous git :
 
 git clone https://github.com/agueganno/gelol-ci.git
 
+
 Revue de code
 ********************************************************************************
 
@@ -531,6 +530,17 @@ Marche aussi si chaque développeur a son dépôt.
 
 Facilité dans github grâce aux *pull requests*
 
+Le principe des pull requests
+================================================================================
+
+Chaque développeur dispose de son espace de travail. Il peut modifier les codes
+indépendamment du reste de l'équipe. Quand les développements sont prêts :
+
+- Demande d'intégration des modifications dans la base de codes. C'est la
+  *pull request*
+- Validation (ou non) par l'équipe de développement
+- En cas de validation : intégration des codes dans la base de codes.
+
 En direct - Pair programming
 ================================================================================
 
@@ -577,9 +587,9 @@ Fonctionne sur le principe de **cibles**.
 Make
 ================================================================================
 
-Mais
+Mais :
 
-- pas de gestion des dépendances
+- pas de gestion des dépendances (bibliothèques)
 - beaucoup de code à écrire
 - dépend du système
 
@@ -588,6 +598,11 @@ Dans les faits :
 - Makefile généré automatiquement
 - dépendances gérées par le système d'exploitation
 - dépendances vérifiées durant la phase de configuration
+
+Make
+================================================================================
+
+On retrouve le "classique" enchaînement :
 
 ::
 
@@ -704,12 +719,12 @@ Par exemple, pour un navigateur web :
 
 Il est alors judicieux de séparer ce projet en modules distincts
 
-
 Toujours plus de fonctionnalités
 ================================================================================
 
 Les fonctionnalités de ces outils de build  peuvent être étendues par le biais
 de plugins.
+
 
 Toute tâche sur le code qui est automatisable peut être réalisée par le biais
 d'un plugin :
@@ -733,6 +748,7 @@ Gradle :
 Des équivalents sur les autres plateformes
 ================================================================================
 
+
 Pour Node.js
 
 - Grunt
@@ -742,6 +758,18 @@ Pour Node.js
 Pour Ruby : Rails
 
 …
+
+Et pas seulement pour Java
+================================================================================
+
+Il n'y a bien sûr pas que Java...
+
+- NAnt
+- MSBuild
+- npm pour node.js
+- pip pour Python
+- composer pour PHP
+- ...
 
 Quelques ressources (1)
 ================================================================================
@@ -878,6 +906,25 @@ de bugs dans un logiciel**, et ce quelle que soit la couverture.
 
 Quid de la présence d'un bug dans les tests ?
 
+Tests de propriétés
+================================================================================
+
+Si le développeur oublie de traiter un cas dans son algoritme, pourquoi y
+penserait-il lors des tests ?
+
+Plutôt que de tester un ensemble de couples ``entrée -> sortie`` définis à
+l'avance, on définit une liste de propriétés (relations entre ``entrée`` et
+``sortie``) que doivent respecter tous les couples ``entrée -> sortie``.
+
+- voir quicktest.lhs
+- voir NonEmptyListTest.scala
+
+Le framework de tests génère les cas de tests tout seul.
+
+- Plus grande couverture
+- Couvre des cas auxquels le développeur n'a pas forcément réfléchi
+- Toujours pas exhaustif
+
 Écrire les tests en premier
 ================================================================================
 
@@ -897,7 +944,6 @@ Les tests :
 
 - sont écrits de manière intelligible
 - décrivent simplement le comportement de chaque élément
-
 - voir specs.scala
 
 Écrire du code testable
@@ -924,7 +970,7 @@ Quelques frameworks d'écriture de tests unitaires :
 - Ruby : Test::Unit (Unitaire) / Rspecs (BDD)
 - Python : PyUnit
 - Javascript : Jasmine
-- Haskell : Quickcheck
+- Haskell : HUnit
 - …
 
 Deux liens utiles :
@@ -1019,8 +1065,8 @@ Objectifs :
 Selon Wikipédia : "Cette mesure comptabilise le nombre de « chemins » au travers 
 d'un programme représenté sous la forme d'un graphe"
 
-Concrétement : on compte les appels à **if**, **else if**, **case**, **for**,
-**while**, **&&**, **||**...
+Concrétement : on compte les appels à ``if``, ``else if``, ``case``, ``for``,
+``while``, ``&&``, ``||``...
 
 - Objectif : Garder les codes simples.
 - Comment ?
@@ -1056,7 +1102,7 @@ mauvaises pratiques. Par exemple, en Java :
 - Ne pas s'assurer que les flux d'entrée/sortie ont bien été fermés
 - Ne pas mettre d'accolades autour du bloc d'instructions d'un if s'il ne comporte
   qu'une seule ligne.
-- Ne pas déclarer les "constantes" **final**
+- Ne pas déclarer les "constantes" ``final``
 - …
 
 Détection des mauvaises pratiques (2)
@@ -1213,6 +1259,21 @@ Pour des infos sur le logiciel :
 
 **Jenkins, the definitive guide**
 
+Très complet, très complexe.
+
+Offres SaaS
+================================================================================
+
+- Travis
+- Drone.io
+
+Simple à mettre en place (un fichier de conf à ajouter au projet).
+
+Intégration immédiate à github (pull requests, hooks, …).
+
+Gratuit pour les projets open source
+
+
 Continuous delivery / deployment
 ********************************************************************************
 
@@ -1242,7 +1303,7 @@ Les bénéfices sont multiples :
 Cadres propices
 ================================================================================
 
-SaaS - Software as a Service
+Pour les offres SaaS - Software as a Service
 
 - Environnement d'exécution contrôlé
 - Changement accepté par les utilisateurs
