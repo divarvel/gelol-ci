@@ -10,8 +10,9 @@ slides.tex: plan.rst heritage.png
 html: plan.rst heritage.png
 	@pandoc \
 		-f rst -t dzslides -o slides.html --template default.dzslides\
+		-H style.css\
 		-V lang:french\
-		-V date:"30 septembre 2013"\
+		-V date:"7 février 2017"\
 		-V author:"Clément Delafargue, Alexis Guéganno"\
 		plan.rst
 

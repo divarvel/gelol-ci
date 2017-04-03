@@ -21,19 +21,12 @@ Contrôle de version
 Problématique
 ================================================================================
 
-Les codes sont :
+Assurer une bonne gestion des sources sachant qu’elles:
 
-- Écrits en équipe
-
-  - Échanges des codes
-  - Justification des modifications.
-
-- Pensés de façon modulaire (on espère)
-
-  - Interventions indépendantes sur les codes.
-  - Divergence des bases de codes
-
-Plusieurs problèmes peuvent être dégagés.
+- peuvent être éditées par plusieurs personnes
+- possèdent intrinsèquement une certaine complexité
+- évoluent dans le temps en terme de fonctionnalités, d’architecture… mais aussi
+  de bugs !
 
 1 - Échanger les codes
 ================================================================================
@@ -41,14 +34,17 @@ Plusieurs problèmes peuvent être dégagés.
 Première approche :
 
 - Envoi de fichiers sources par mail.
-- Faire un mv / un copier coller.
+- Faire des copier/coller
 
-Compréhension difficile de l'évolution des codes.
+Cela pose porblème en terme
+
+- de compréhension
+- de contrôle des modifications
 
 1 : Utiliser des *diffs*
 ================================================================================
 
-Dans un travail collaboratif, les fichiers évoluent petit à petit. Pour
+Dans un logiciel d’envergure, les fichiers évoluent petit à petit. Pour
 comparer deux versions d'un même fichier, on peut utiliser un *diff*
 
 Identification immédiate des évolutions. Le diff permet de voir rapidement
@@ -119,7 +115,14 @@ Une modification, donnée seule, peut être difficile à comprendre :
 - Diff de grande taille
 - Modifications subtiles...
 
-Solution -> Joindre un message explicatif à chaque modification
+Solution → Joindre un message explicatif à chaque modification
+
+2 - Une solution pas si désuète…
+================================================================================
+
+Dans certains gros projets collaboratifs, des diffs et justifications associées
+sont envoyés par mail et servent de base de discussion, pour des évolutions
+complexes.
 
 3 - Maintenir un historique des modifications
 ================================================================================
@@ -127,7 +130,13 @@ Solution -> Joindre un message explicatif à chaque modification
 Soit une équipe de développement en train de bosser sur une appli web avec
 authentification...
 
-Identification par mot de passe... "encodés" en base64.
+Identification par mot de passe... encodés en base64.
+
+3 - Maintenir un historique des modifications
+================================================================================
+
+.. image:: facepalm.gif
+
 
 3 - Maintenir un historique des modifications
 ================================================================================
@@ -161,19 +170,20 @@ Les modifications non publiées sont perdues.
 Cette fonctionnalité justifie, à elle seule, le versionnement.
 
 
-4 - Permettre les divergences et convergences des codes
-================================================================================
+4 - Permettre les divergences… 
+===============================================================================
 
 Dans un logiciel, on trouve parfois plusieurs briques. Plusieurs personnes
-peuvent être amenées à modifier des fonctions différentes.
+peuvent être amenées à modifier des aspects différents d’une même
+fonctionnalité.
 
-- Interventions parfois longues
-- Travail sur la base de codes commune -> Blocage pour tout l'équipe (il va y
-  avoir de la casse temporaire)
-- Travail dans son coin, modification en une seule fois dans la base de codes ->
-  Modification incompréhensible...
+4 - … et convergences des codes
+===============================================================================
 
-4 - S : Permettre le suivi des codes qui divergent, simplifier les convergences
+Une fois les travaux prêts à être intégrés, il faut être capable de les
+rappatrier dans la base de code commune
+
+4 - S : Permettre divergences et convergences
 ================================================================================
 
 Création de **branches** pour les travaux indépendants.
@@ -181,7 +191,9 @@ Création de **branches** pour les travaux indépendants.
 - Protection de la base de codes commune
 - Suivi des modifications, qui peuvent devenir atomiques.
 
-besoin d'outils de convergence : Problème commun à l'application de patches.
+besoin là aussi d'outils de convergence
+
+.. image:: smith-agent.gif
 
 En résumé...
 ================================================================================
@@ -215,6 +227,13 @@ Gestion du versionnement sur le serveur.
 
 .. image:: workflow-centralized.png
 
+Les systèmes centralisés - quelques opérations communes
+================================================================================
+
+- commit
+- update
+- merge
+
 Les systèmes centralisés - limites
 ================================================================================
 
@@ -223,7 +242,7 @@ Les systèmes centralisés - limites
   - Impossible de commiter "dans son coin"
   - Impossible de créer des branches rapidement
   - Nécessité d'être connecté
-  - Conventions architecturales
+  - Conventions architecturales très lourdes
 
 Les systèmes centralisés - limites
 ================================================================================
@@ -311,10 +330,10 @@ Malgré tout, quelques avantages des systèmes centralisés
 Malgré leurs fonctionnalités souvent plus limités, les systèmes de versionnement
 centralisés présentent quelques avantages :
 
-- La centralisation rassure les managers
+- La centralisation rassure les (vieux) managers
 - La mise en commun est directe - il n'y a qu'un seul point d'entrée.
-- L'ancienneté est un atout : beaucoup de solutions reposent nativement sur les
-  systèmes centralisés ou proposent des clients permettant de s'y connecter.
+- Beaucoup de solutions reposent nativement sur les
+  systèmes centralisés ou permetetnt de les utiliser
 - Souvent besoin de plus d'étapes pour faire la même chose.
 
 Malgré tout, quelques avantages des systèmes centralisés (2)
@@ -322,7 +341,7 @@ Malgré tout, quelques avantages des systèmes centralisés (2)
 
 - Moins de concepts à apprendre. Il faut savoir commiter, mettre le dépôt local
   à jour, éventuellement savoir déplacer des dossiers, et c'est à peu près tout.
-- Plus de liberté dans les systèmes décentralisés -> plus de risques. Il est
+- Plus de liberté dans les systèmes décentralisés → plus de risques. Il est
   plus compliqué de tricher sur l'historique dans Subversion que dans Git. A
   contrario, il est aussi presque impossible de corriger une erreur dans
   l'historique de SVN. Attention aux "mensonges" dans l'historique
@@ -352,6 +371,21 @@ Quelques bonnes pratiques de versionnement
   rebase, par exemple)
 - …
 
+Quelques bonnes pratiques de versionnement
+================================================================================
+
+Il peut être utile de standardiser les messages de commits :
+
+- Séparer le sujet du corps avec une ligne vide
+- Limiter la longueur du titre à 50 caractères
+- Commencer le titre par une majuscule, ne pas mettre de point à la fin
+- Utiliser un titre "directif"
+- Limiter la longueur des lignes à 72 caractères
+- Privilégier l’explication du quoi et du pourquoi par opposition au comment
+
+Réf : http://chris.beams.io/posts/git-commit/
+
+
 Quelques bonnes pratiques de versionnement - git
 ================================================================================
 
@@ -360,6 +394,45 @@ Quelques bonnes pratiques de versionnement - git
 - ``git commit --verbose`` ou ``git diff --cached`` pour voir ce que l'on
   s'apprête à commiter
 - …
+
+Systèmes décentralisés et gouvernance de projets libres
+================================================================================
+
+Une limite en particulier pose un
+problème majeur pour les logiciels open-source : tout le monde n'a pas
+le droit de commiter dans le projet…
+
+Cette limite disparaît dans les systèmes décentralisés :
+
+- Fork dans un dépôt local
+- Modifications, commits
+- "Pull request"
+
+On peut aussi utiliser une passerelle vers un système décentralisé (git-svn,
+hgsubversion…), mais ça provoque d'autres problèmes…
+
+Le principe des pull requests
+================================================================================
+
+Chaque développeur dispose de son espace de travail. Il peut modifier les codes
+indépendamment du reste de l'équipe. Quand les développements sont prêts :
+
+- Demande d'intégration des modifications dans la base de codes. C'est la
+  *pull request*
+- Validation (ou non) par l'équipe de développement
+- En cas de validation : intégration des codes dans la base de codes.
+
+Et si ma pull request est refusée par le projet ?
+================================================================================
+
+Dans le cas de projets libres, plusieurs solutions :
+
+- Intégrations de modifications demandées par l'équipe de développement, puis
+  nouvelle pull request
+- Maintenance d'un fork en parallèle du projet original.
+
+Dans le cas de systèmes centralisés, on reste bloqué à la communication de
+patches...
 
 Les pull requests au coeur des systèmes de versionnement centralisés
 ================================================================================
@@ -383,38 +456,30 @@ la transition est parfois douloureuse pour une partie de l'équipe, au début...
 Quelques ressources
 ================================================================================
 
-Pour SVN :
-
-http://svnbook.red-bean.com/
+Pour SVN : http://svnbook.red-bean.com/
 http://stackoverflow.com/questions/871/why-is-git-better-than-subversion
 
-Pour git :
-
-http://whygitisbetterthanx.com/
+Pour git : http://whygitisbetterthanx.com/
 http://book.git-scm.com/
 
-Pour Mercurial :
-
-http://hgbook.red-bean.com/
+Pour Mercurial : http://hgbook.red-bean.com/
 
 Quelques ressources
 ================================================================================
 
-Pour Darcs :
-
+Pour Darcs : 
 http://en.wikibooks.org/wiki/Understanding_Darcs
 
-"10 things I hate about Git"
-
+"10 things I hate about Git" 
 https://steveko.wordpress.com/2012/02/24/10-things-i-hate-about-git/
 
 Un peu d'ironie :
-
 http://blog.cedarsoft.com/2010/01/top-10-why-subversion-is-better-than-git/
 
 Ce document est versionné sous git :
 
-``git clone https://github.com/divarvel/gelol-ci.git``
+git clone https://github.com/agueganno/gelol-ci.git
+
 
 Revue de code
 ********************************************************************************
@@ -483,21 +548,20 @@ Un poste de travail pour deux. Un développeur code, l'autre commente / guide /
 pointe les erreurs.
 
 - Gain de productivité appréciable (idéalement supérieur à un facteur 2).
-- Permet de faire prendre en main cocnrètement une technologie
+- Permet de faire prendre en main concrètement une technologie
 - Au coeur de l'extreme programming (XP)
 
 
-Builds automatisés
+Builds rationnalisés
 ********************************************************************************
 
 Problématique
 ================================================================================
 
-Logiciels écrits en équipe.
-
-Phase de compilation / assemblage pas toujours évidente (dépendances, …)
-
-Opérations **très** répétitives et chronophages si elles sont faites à la main.
+- Logiciels complexes
+- Gestion des dépendances
+- Phase de compilation / assemblage pas toujours évidente (dépendances, …)
+- Opérations **très** répétitives et chronophages si elles sont faites à la main.
 
 Besoins
 ================================================================================
@@ -508,7 +572,7 @@ Le système de gestion de versions
 - Automatiser les taches
 - (éventuellement) brancher des traitements additionnels
 - Modulariser les traitements
-- Ajout rapide de développeurs à une équipe
+- Intégrer rapidement de développeurs à une équipe
 
 Make
 ================================================================================
@@ -575,32 +639,29 @@ Convention over Configuration :
   les bonnes - Moins de choses à expliciter
 - mais possibilité de sortir des clous
 
-Très répandu dans le monde java.
+Très répandu dans le monde Java.
 
-Maven
+SBT
 ================================================================================
 
-Contenu du POM :
+**Simple Build Tool**
 
-- dépendances
-- relations de parenté entre modules
-- configuration des modules maven
-
-  - Version de Java utilisée pour la compilation
-  - Module de création d'exécutables (jar)
-  - Génération de documentation
+- Utilisé sur la JVM
+- Pas si simple dans les faits, mais très puissants.
+- Build décrit en Scala
+- Compatible avec Maven
 
 
-Maven - les dépendances
+SBT et Maven - les dépendances
 ================================================================================
 
 Maven est capable de gérer les dépendances d'une bibliothèques.
 
 - Gestion des dépendances directes
-- Gestion des dépendances indirectes (dépendances de dépendances
+- Gestion des dépendances indirectes (dépendances de dépendances)
 - Gestion des dépendances par phase de construction
 
-Maven - Repositories
+SBT et Maven - Repositories
 ================================================================================
 
 Bibilothèques rangées dans différents dépôts.
@@ -614,7 +675,7 @@ Dépôts tiers
 - Dépôts "maison"
 - Dépôts "cache" pour soulager la bande passante
 
-Maven - Goals
+Un cycle de vie complet
 ================================================================================
 
 Différentes phases au sein du cycle de vie d'un projet. Par exemple :
@@ -626,8 +687,8 @@ Différentes phases au sein du cycle de vie d'un projet. Par exemple :
 - déploiement
 - nettoyage
 
-Dépendances entre les différents *goals*. Intérêt : on ne peut pas faire un
-déploiement innocent d'une bibliothèque dont des tests sont cassés...
+Ces phases peuvent dépendre les unes des autres : on peut arrêter une
+construction si les tests sont en échec
 
 Maven - Archetypes
 ================================================================================
@@ -658,51 +719,13 @@ Par exemple, pour un navigateur web :
 
 Il est alors judicieux de séparer ce projet en modules distincts
 
-Maven - Quelques cas d'utilisation... (1)
-================================================================================
-
-::
-
-  mvn compile
-
-C'est la phase de **compilation** : toutes les sources sont compilées,
-après résolution des dépendances. Concrètement :
-
-- Les dépendances sont résolues.
-- Maven réunit les dépendances, éventuellement en interrogeant des serveurs distants
-- En cas d'échec -> erreur de compilation... ;-)
-- Le *classpath* du compilateur Java est alimenté comme il se doit.
-- Les fichiers **.class** sont générés.
-
-Maven - Quelques cas d'utilisation... (2)
-================================================================================
-
-::
-
-  mvn test
-
-Cette commande exécute les tests déclarés dans le projet.
-
-Concrètement, que se passe-t-il ?
-
-La phase ``mvn compile`` est lancée (dépendance préalable à l'exécution des tests.
-On ne pourrait pas tester des codes qui ne compilent pas...)
-
-Maven - Quelques cas d'utilisation... (2)
-================================================================================
-
-Les dépendances sur les tests sont résolues
-
-Les tests sont compilés.
-
-Les tests sont exécutés sur les codes.
-
-**On a réalisé, en une seule commande, quatre opérations non atomiques !**
-
 Toujours plus de fonctionnalités
 ================================================================================
 
-Les fonctionnalités de maven peuvent être étendues par le biais de plugins.
+Les fonctionnalités de ces outils de build  peuvent être étendues par le biais
+de plugins.
+
+
 Toute tâche sur le code qui est automatisable peut être réalisée par le biais
 d'un plugin :
 
@@ -722,15 +745,19 @@ Gradle :
 - Utilisation de Groovy pour décrire les phases de build.
 - Compatible Maven.
 
-Et encore d'autres outils de builds...
+Des équivalents sur les autres plateformes
 ================================================================================
 
-SBT :
 
-- Grande souplesse dans la gestion des dépendances
-- Écrit en scala
-- Fichiers de configuration très concis
-- Compatible Maven.
+Pour Node.js
+
+- Grunt
+- Gulp
+- Webpack
+
+Pour Ruby : Rails
+
+…
 
 Et pas seulement pour Java
 ================================================================================
@@ -790,12 +817,12 @@ Problématique
 
 L'informatique est une disicipline déterministe.
 
-Les logiciels sont rarement écrits en aveugle :
+Les logiciels sont écrits pour répondre à des problèmes précis
 
 - Des spécifications décrivent un comportement attendu
 - Les algorithmes sont pensés avant d'être couchés sur le papier
 
--> On peut décrire très souvent les entrées d'un traitement, et les résultats 
+→ On peut décrire très souvent les entrées d'un traitement, et les résultats 
 qu'il doit fournir en utilisant ces entrées
 
 Deux mondes s'opposent
@@ -904,7 +931,8 @@ Le framework de tests génère les cas de tests tout seul.
 TDD - Test Driven Development : écrire les tests avant le code.
 
 - Formalisation des spécifications
-- Assurance de la couverture du code 
+- Assurance de la couverture du code
+
 
 Écrire les spécifications en premier
 ================================================================================
@@ -950,6 +978,28 @@ Deux liens utiles :
 - Google Testing Blog : http://googletesting.blogspot.com/
 - Relation Testable / Bien conçu : http://vimeo.com/15007792
 
+D’autres façons d’approcher l’écriture du code
+================================================================================
+
+DDD : Domain Driven Development - Se servir de la description formelle du code
+et de ses types pour dériver des informations fiables des fonctions écrites.
+
+D’autres stratégies pour tester le code
+================================================================================
+
+Les tests unitaires ne peuvent tout démontrer… Que faire pour :
+
+- Les interactions avec les systèmes externes ?
+- Les comportements non-procéduraux, e.g. les CSS ?
+- Tests sur des builds très complexes ?
+
+D’autres stratégies pour tester le code (2)
+================================================================================
+
+- Tests d’intégration
+- Tests de cohérence visuelle (e.g. Zeno Pixel)
+- OpenQA
+
 Métriques
 ********************************************************************************
 
@@ -981,7 +1031,7 @@ Une définition stricte de la qualité des codes ?
 Quelques métriques
 ================================================================================
 
-- Style de codage
+- Style de code
 - Détection de copier / coller
 - Complexité du code (complexité cyclomatique)
 - Cohérence des méthodes et des classes
@@ -1071,10 +1121,16 @@ Les métriques et la dette technique
 
 Comment expliquer simplement les problèmes mis en lumière par ces métriques ?
 
--> En parlant de **dette technique**
+Les métriques et la dette technique
+================================================================================
+
+→ En parlant de **dette technique**
 
 **La dette technique représente des parties de code non utilisées ou dans 
 lesquelles il est difficile d'effectuer des modifications et évolutions.**
+
+Les métriques et la dette technique
+================================================================================
 
 En **chiffrant** les problèmes recensés :
 
@@ -1225,6 +1281,8 @@ Continuous delivery
 ================================================================================
 
 - Après chaque build réussi, mettre à dispostion un livrable
+- Nécessite de maîtriser le processus de déploiement en plus du processus de
+  build
 
 
 Continuous Deployment
@@ -1250,40 +1308,18 @@ Pour les offres SaaS - Software as a Service
 - Environnement d'exécution contrôlé
 - Changement accepté par les utilisateurs
 
-Plateforme de déploiement
+Des contraintes indirectes
 ================================================================================
 
-PaaS : Platform as a Service
+- Savoir livrer vite
+- Savoir revenir vite à une version précédente du code
+- Maîtriser précisément le comportement de son architecture
 
-But : industrialiser l'environnement de production
-
-Déploiement, monitoring et montée en charge automatisés, paiement à la
-consommation.
-
-S'intègre parfaitement avec une toolchain d'intégration continue (build
-automatisé, déploiement via git).
-
-Exemples : Clever-Cloud, Heroku, NodeJitsu
-
-Une offre PaaS : Clever-Cloud
+…pour des avantages indirects
 ================================================================================
 
-- Déploiement via git
-- Exploite vos outils de build (gestion des dépendances, compilation
-  automatisée)
-- Monitoring automatisé
-- Montée en charge automatisée
-- Paiement à la consommation
+- Impose une grande rigueur vis à vis de la qualité du code
+- Assurance d’une qualité continue du code
+- Très grande réactivité aux bugs et aux demandes utilisateurs
 
-
-L'intégration continue dans le cloud
-================================================================================
-
-Pipeline complètement automatisé, *très simple* à mettre en place,
-
-basé sur des *outils standard* et des *bonnes pratiques* (git, framework de
-tests, outils de build)
-
-- Gestion du code avec Github ou Bitbucket
-- Intégration continue avec Travis ou Drone.io
-- Déploiement sur Clever-Cloud, Heroku, NodeJitsu…
+Des services existent : Clever Cloud, Heroku, Google Cloud…
